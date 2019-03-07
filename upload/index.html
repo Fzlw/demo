@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Upload</title>
 </head>
-<body>
-    <input id='file' type="file" name="upload" />
 
+<body>
+    <form id='form' action="">
+        <input id='file' type="file" name="upload" />
+        <input type="text" name='li_wei' />
+    </form>
+
+    <button id='btn'>submit</button>
     <script>
-        let ele = document.getElementById('file');
-        ele.addEventListener('change', function() {
-            let files = ele.files[0];
-            let formData = new FormData()
-            formData.append('img', files);
-            ajax(formData)
+        // let ele = document.getElementById('file');
+        // ele.addEventListener('change', function () {
+        //     let files = ele.files[0];
+        //     let formData = new FormData()
+        //     formData.append('img', files);
+        //     ajax(formData)
+        // })
+
+        // 表单模拟
+        document.getElementById('btn').addEventListener('click', function () {
+            let form = document.getElementById('form')
+            ajax(new FormData(form))
         })
+
 
         function ajax(data) {
             let xhr = new XMLHttpRequest();
             xhr.open('post', 'http://127.0.0.1:7001/upload', true);
-            xhr.onreadystatechange = function() {
+            xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     console.log(xhr.responseText);
                 }
@@ -31,9 +44,10 @@
             // }  
             xhr.onprogress = (e) => {
                 console.log(e)
-            }          
+            }
             xhr.send(data);
         }
     </script>
 </body>
+
 </html>
