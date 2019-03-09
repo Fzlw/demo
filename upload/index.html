@@ -9,7 +9,7 @@
 <body>
     <form id='form' action="">
         <input id='file' type="file" name="upload" />
-        <input type="text" name='li_wei' />
+        <input type="text" name='li_wei' id='liwei' />
     </form>
 
     <button id='btn'>submit</button>
@@ -22,29 +22,47 @@
         //     ajax(formData)
         // })
 
+        // base64
+        let fileReader = new FileReader();
+        let data = null;
+
         // 表单模拟
-        document.getElementById('btn').addEventListener('click', function () {
-            let form = document.getElementById('form')
-            ajax(new FormData(form))
+        document.getElementById('file').addEventListener('change', function (e) {
+            let file = e.target.files[0]
+            console.log(file)
+            fileReader.readAsDataURL(file)
+            fileReader.onload = function() {
+                data = fileReader.result;
+                console.log(data)
+            }
         })
+
+        document.getElementById('btn').addEventListener('click', function() {
+            let form = new FormData()
+            form.append('img', data)
+            form.append('li_wei', document.getElementById('liwei').value)
+            ajax(form)
+        })
+
+        
 
 
         function ajax(data) {
             let xhr = new XMLHttpRequest();
-            xhr.open('post', 'http://127.0.0.1:7001/upload', true);
+            xhr.open('post', 'http://127.0.0.1:7001/tools/check', true);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     console.log(xhr.responseText);
                 }
             }
-            console.log(xhr)
+            // console.log(xhr)
             // 报错 跨域问题
             // xhr.upload.onprogress = (e) => {
             //     console.log((e.loaded / e.total) * 100 + '%')
             // }  
-            xhr.onprogress = (e) => {
-                console.log(e)
-            }
+            // xhr.onprogress = (e) => {
+            //     console.log(e)
+            // }
             xhr.send(data);
         }
     </script>

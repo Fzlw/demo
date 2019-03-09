@@ -15,13 +15,19 @@ const client = new OSS({
 // 测试oss-ali 对象储存
 async function test() {
     try {
-        let list = await client.put('test/liwei', '../test2.jpg');
+        // let list = await client.put('test/liwei', '../test2.jpg');
+        // let list  = await client.deleteMulti([
+        //     'b7b07953-93aa-478a-ba52-d43e28aae8e0/back.jpeg',
+        //     'b7b07953-93aa-478a-ba52-d43e28aae8e0/unback.jpeg',
+        //     'b7b07953-93aa-478a-ba52-d43e28aae8e0/body.jpeg'
+        // ])
+        let list = await client.list()
         console.log(list)
     } catch (error) {
         throw error;
     }
 }
-// test()
+test()
 
 
 
@@ -61,6 +67,6 @@ app.post('/upload', multipart, function (req, res) {
     res.end()
 })
 
-app.listen(7001, () => {
-    console.log('http server start port 7001')
-})
+// app.listen(7001, () => {
+//     console.log('http server start port 7001')
+// })
