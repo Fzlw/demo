@@ -14,13 +14,14 @@
 
     <button id='btn'>submit</button>
     <script>
-        // let ele = document.getElementById('file');
+        let ele = document.getElementById('file');
         // ele.addEventListener('change', function () {
         //     let files = ele.files[0];
         //     let formData = new FormData()
         //     formData.append('img', files);
         //     ajax(formData)
         // })
+        console.log(ele);
 
         // base64
         let fileReader = new FileReader();
@@ -47,7 +48,7 @@
         
 
 
-        <!-- function ajax(data) {
+        function ajax(data) {
             let xhr = new XMLHttpRequest();
             xhr.open('post', 'http://127.0.0.1:7001/tools/check', true);
             xhr.onreadystatechange = function () {
@@ -61,7 +62,7 @@
             //     console.log((e.loaded / e.total) * 100 + '%')
             // } 
             xhr.send(data);
-        } -->
+        }
     </script>
 </body>
 
