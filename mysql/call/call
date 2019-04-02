@@ -1,0 +1,116 @@
+BEGIN
+
+       declare _orderTime datetime(6);
+       declare _billType int;
+       declare _remark nvarchar(200);
+       set _orderTime=current_timestamp(6);
+       
+		if paymentType=1 then
+			set _billType=132;
+			set _remark='订单BTC支付成功';		
+            
+            INSERT INTO `cnh_userbtcbill`(`Id`,`UserId`,`BillType`,`RelationId`,
+			`Amount`,`AvailableProperty`,`FrozenAssets`,`TotalAssets`,
+			`BillTime`,`Remark`,
+			`Valid`,`CreateTime`,`CreatePerson`,
+			`Approval`,`ApprovalWay`,`Checked`,`CheckedWay`,`State`,`Name`,`Details`) 
+			values(uuid(),userId,_billType,orderId,
+			totalAmount,availableProperty,frozenAssets,totalAssets,
+			_orderTime,remark,
+			1,_orderTime,userId,
+			1,1,1,1,1,'','');
+            
+        elseif paymentType=4 then
+			set _billType=22;
+			set _remark='订单人民币支付成功';
+            
+            INSERT INTO `cnh_usercnybill`(`Id`,`UserId`,`BillType`,`RelationId`,
+			`Amount`,`AvailableProperty`,`FrozenAssets`,`TotalAssets`,
+			`BillTime`,`Remark`,
+			`Valid`,`CreateTime`,`CreatePerson`,
+			`Approval`,`ApprovalWay`,`Checked`,`CheckedWay`,`State`,`Name`,`Details`)
+			values(uuid(),userId,_billType,orderId,
+			totalAmount,availableProperty,frozenAssets,totalAssets,
+			_orderTime,remark,
+			1,_orderTime,userId,
+			1,1,1,1,1,'','');
+        
+		end if;
+        
+        
+
+
+
+       /**更新订单**/
+		update cnh_userorder set State=1,UpdateTime=_orderTime,UpdatePerson=userId where Id=orderId;
+        
+        #select ROW_COUNT() as num;
+        
+        select 1 as num;
+        
+END
+
+
+
+BEGIN
+       declare i int ; 
+       declare _code varchar(6);
+       declare exitedCount int;
+       declare needMore int;
+       set exitedCount=(select count(1) from cnh_memocode where IsUsed=0);
+	   set i = 0; 
+	   set needMore = memosNumber-exitedCount; 
+       set _code='';
+	   if needMore>0 then
+       while i<needMore do 
+       
+			SET _code=rand_string(6);            
+            if not exists(select Code from cnh_memocode where Code=_code) then
+				insert into cnh_memocode(Id, Code, CodeType, IsUsed, Valid, CreateTime, CreatePerson, UpdateTime, UpdatePerson) 
+                values(uuid(),_code,0,0,1,current_timestamp(6),'system',current_timestamp(6),'system');  
+            end if;	      
+            SET i = i +1;
+            
+       END WHILE;
+    END if;
+END
+
+
+BEGIN
+	#DECLARE chars_str varchar(100) DEFAULT 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+	#DECLARE chars_str varchar(100) DEFAULT 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+	DECLARE chars_str varchar(100) DEFAULT '0123456789';
+    DECLARE return_str varchar(255) DEFAULT '';
+    DECLARE i INT DEFAULT 0;
+    WHILE i < n DO
+        SET return_str = concat(return_str,substring(chars_str , FLOOR(1 + RAND()*10),1));
+        SET i = i +1;
+    END WHILE;
+    RETURN return_str;
+END
+
+
+BEGIN
+    DECLARE a int DEFAULT 0;
+    lp:LOOP
+        set a = a+1;
+        
+        delete from cnh_userbtcbill where Id = (
+select distinct  Id from (
+select * from cnh_userbtcbill 
+where RelationId in (select RelationId from(
+select bill.RelationId, count(*) as c from cnh_userbtcbill as bill
+group  by bill.RelationId,bill.BillType
+) chongfu
+where chongfu.c > 1
+-- and RelationId = 'd7d4c453-6305-4a47-8906-71cf56cdbfea'
+)
+
+order by RelationId) ddd
+limit 0,1
+);
+        
+        if a>114 THEN LEAVE lp;
+        END if;
+    END LOOP;
+END
