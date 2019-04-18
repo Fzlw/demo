@@ -69,7 +69,7 @@ Decimal.set({
     /**
      * 两数相乘
      */
-    mul(a, b, fixedLength) {
+    mul(a, b, fixedLength = 2) {
         a = this.toDecimal(a);
         b = this.toDecimal(b);
         let result = a.mul(b).toNumber();
@@ -82,7 +82,7 @@ Decimal.set({
     /**
      * 两数相除
      */
-    div(a, b, fixedLength) {
+    div(a, b, fixedLength = 2) {
         a = this.toDecimal(a);
         b = this.toDecimal(b);
         let result = a.div(b).toNumber();
