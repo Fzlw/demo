@@ -56,3 +56,6 @@ function getKey(name) {
     }
     return res;
 }
+
+// sql 
+// LOAD DATA LOW_PRIORITY LOCAL INFILE 'D:\\liwei\\bank.csv' REPLACE INTO TABLE `jyrj`.`jy_bank_info` CHARACTER SET utf8 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES (`id`, `name`, `self_code`, `server_code`, `valid`, `create_time`, `create_person`);
