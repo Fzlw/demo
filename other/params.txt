@@ -1,0 +1,8 @@
+'transId' 'serialNo' 'merNo' 'merKey' 'merIp' 'orderNo' 'transAmt' 'orderDesc' 'transDate'
+'transTime' 'overTime' 'notifyUrl' 'bankCode' 'cardNo' 'cardType' 'idNo' 'idType' 'idName'
+'mobileNo' 'userRate' 'extraInfo' 'sign'
+
+'transId' 'serialNo' 'merNo' 'merKey' 'merIp' 'orderNo' 'transAmt' 'orderDesc' 'transDate'
+'transTime' 'overTime' 'notifyUrl' 'bankCode' 'cardNo' 'cardType' 'idNo' 'idType' 'idName'
+'mobileNo' 'payeeCardNo' 'payeeIdNo' 'payeeBankCode' 'payeeIdType' 'payeeIdName' 'payeeMobileNo'
+'sign'

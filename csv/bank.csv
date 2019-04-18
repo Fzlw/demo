@@ -1,65 +1,65 @@
-4e23ec4e-c7fc-4b43-bedd-25096ef0e657,工商银行,ICBC,ICBC,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-f661b304-e958-487b-9e8f-92b2cbabac5b,中国银行,BOC,BOC,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-0e069e76-483f-4be4-b1e2-fda1590379f7,招商银行,CMB,CMBCHINA,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-bb701773-eddf-4806-bac1-2253c5f72622,广发银行,,CGB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-65b42095-644a-454b-9137-f61346cf5c85,邮政储蓄,PSBC,POST,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-032d8693-b084-41c8-b93e-df5a73efeea7,民生银行,CMBC,CMBC,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-e319d25f-d639-49a7-a28b-11f425db30a6,华夏银行,HXBANK,HXB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-82f83487-2f61-465a-839e-06ae0e0b0312,农业银行,ABC,ABC,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-d10a9aca-86a7-4cba-8e08-5fe63d7d5ecd,建设银行,CCB,CCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-7aa9cf19-a7c0-4b04-b23f-13830bfa3bcb,浦发银行,,SPDB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-345bc1bf-a948-435a-a9a5-484ae4e66e20,交通银行,COMM,BOCO,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-30805cb1-e143-4495-a1c3-0f0ef52ffccd,中信银行,CITIC,ECITIC,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-68cc2e9b-cc97-460b-8279-fd41f82ae3d3,光大银行,CEB,CEB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-323a1030-8b05-49be-b9ed-d408013ceaeb,兴业银行,CIB,CIB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-fbe0b9a8-134a-4779-8ea7-d31c8ba3b0cf,平安银行,SPABANK,PINGANBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-04fc1946-bde4-43b8-8a26-19fd9a9fa7ff,上海银行,SHBANK,SHB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-d340d0b7-7c26-43e6-8fa5-979b663894c3,北京银行,BJBANK,BCCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-6bc33bd6-decb-428e-a126-db6ee933249f,广州银行,GCB,GZCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-0ecc7370-268f-47a1-a867-1ca4c35fd6b6,东亚银行,HKBEA,HKBEA,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-2c30f6e6-8a22-4852-818a-678775c63922,上海农商行,,SRCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-72acb81e-9249-4ddc-ac3a-db1ae728aa00,青岛银行,QDCCB,QDCCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-3abaf391-14ff-473d-aa80-cb9b795c97e9,兰州银行,LZYH,LZBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-bf06829e-6c37-4ee2-9cc7-92b0fc73307c,北京农商行,,BJRCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-29e3a23e-cedb-49f2-8e58-d9140744761d,渤海银行,BOHAIB,CBHB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-0dac75c5-8dc5-4e21-b8c8-711b13e91ce5,河北银行,BHB,SCCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-029bba88-66a2-4371-a92b-1dfba6328cc2,汉口银行,HKB,HKB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-bb52b5b3-9d00-44de-b682-4caa4caff9a4,中国进出口银行,,EIB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-514f9346-97b2-495f-9129-92bb0b61eac4,微商银行,,HSB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-fdf5167b-5715-472f-a9c2-349f1ec172e9,杭州银行,HZCB,HZBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-e43b860c-e3b6-4e7b-b7d0-a3fb64cd4c67,宁波银行,NBBANK,NBCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-376d8496-b786-4a86-8e37-123b39eedf31,南京银行,NJCB,NJCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-95dffe79-0598-47de-a26e-9a39dc319471,浙商银行,CZBANK,CZ,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-f3391287-b2c2-4848-953e-f8effa3d77bd,天津银行,TCCB,TCCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-5414838b-2e72-43e7-b960-07430eeb56b3,成都银行,CDCB,BOCD,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-1b251c77-77f0-424c-b224-e4169c7bf5e5,南洋商业银行,,NCBBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-714d8f72-7a47-4593-877c-a7ce1462f8ba,宁波银行,NBBANK,NBCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-d376628a-9c59-4537-b606-1b8871fa45b9,泰隆银行,,ZJTLCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-f22049fe-dde9-49f8-81ca-41d6c47119f6,国家开发银行,CDB,CDB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-1f54904a-2755-4692-95b7-ec145656e103,中国农业发展银行,,ADBC,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-3801e4b3-dfed-4753-83a0-15d40afb83df,广州农商银行,GRCB,CRCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-314a05c4-8d8f-44e4-ba41-08ee62870a53,温州银行,WZCB,WZCBCNSH,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-dbba3c9c-96b1-45d6-b2a0-80f2fc7ec1a2,安徽省农村信用社联合社,,ARCCA,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-293f2538-300a-4a00-9260-299f83aed40b,哈尔滨银行,,HRBCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-56b52278-2cec-425e-9060-3624efe4d17e,吉林农村信用社,,JINLINRCC,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-e593032e-834d-41e4-af54-be59bd3236ca,吉林银行,JLBANK,JLBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-d725b1ca-88fc-40a9-af6b-ea20a3ca2908,海南省农村信用社,,HAINANRCC,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-b27d1fd9-e0af-40ed-ae7a-82f989b9d414,包商银行,BSB,BAOSHANGBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-5a63c00c-3722-4ea2-9e55-a8c52af20122,江苏银行,JSBANK,JIANGSUBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-6b1c81d9-2dae-4659-ace1-fc438b1e3345,邯郸市商业银行,,HANDANCCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-0379426e-d055-41c1-9893-297ac76ee6bb,浙江省农村信用社,ZJNX,ZHEJIANGRCC,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-1bb541b1-c18e-4010-a802-7f87d96d5298,江苏省农村信用社联合社,,JSRCCA,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-81b564e3-bb76-40b3-989f-41166a47f316,乌海银行股份有限公司,,WUHAIBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-2ceb6ddb-55f8-4326-a032-a1f098fda222,恒丰银行,EGBANK,HENGFENGBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-e8a8b522-6afd-429e-b427-b23b1ab59afa,大连银行,DLB,DALIANBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-d5008ddd-0da1-44ae-9346-3f094642b89c,重庆农村商业银行,CRCBANK,CHONGQINGRCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-75ebaf2a-e268-470d-992f-86f2511dbd2b,重庆银行,CQBANK,CHONGQINGBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-dd9f937a-0cda-4935-b5e0-1d2f95897eda,福建省农村信用社,,FUJIANRCC,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-14b9e9a1-505b-4cdb-8567-4e0f92138916,龙江银行,DAQINGB,LONGJIANGBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-462bab64-52f3-4315-bcf3-d1a0e2eed310,厦门银行,,XIAMENBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-ee525bd1-17b8-4a63-b3b1-f849dcf2c999,东莞银行,BOD,DONGGUANGBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-f9b93ce7-986f-4e12-96fb-7f954d0bec62,广西农村信用社,,GUANGXIRCC,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-ed576200-b818-403a-b92c-a4cfbc4799ef,柳州银行,,LIUZHOUBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-4c02c50e-34ed-41fb-9c68-28f4a5203d8c,云南农村信用社,,YUNNANRCC,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-998f5fc9-8fa3-4024-8edb-b83b7c32c92f,东莞农村商业银行,DRCBCL,DONGGUANGRCB,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
-1df07302-5841-4757-9702-6ea79a8bc2de,昆仑银行,KLB,KUNLUNBANK,Tue Apr 02 2019 18:20:25 GMT+0800 (GMT+08:00),loadByCsv
+70255fb1-6498-431a-961e-b91467268ae5,工商银行,ICBC,ICBC,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/ICBC.svg,1,2019-04-16,loadByCsv
+aa237eda-757a-46e2-931d-544e36be4d9b,中国银行,BOC,BOC,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/BOC.svg,1,2019-04-16,loadByCsv
+f576582d-450e-4530-b34a-581182c7ee35,招商银行,CMB,CMBCHINA,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/CMBCHINA.svg,1,2019-04-16,loadByCsv
+4ac24769-e043-4475-b68f-2e4e588c1226,广发银行,,CGB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/CGB.svg,1,2019-04-16,loadByCsv
+3af22ea5-dda8-4b72-babe-2b701b30dabe,邮政储蓄,PSBC,POST,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/POST.svg,1,2019-04-16,loadByCsv
+5514c37a-bb26-4712-a548-7875f2452f18,民生银行,CMBC,CMBC,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/CMBC.svg,1,2019-04-16,loadByCsv
+d5a3b6be-ed7d-4325-a718-8f13d4eed572,华夏银行,HXBANK,HXB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/HXB.svg,1,2019-04-16,loadByCsv
+337e8d48-cab4-4450-afd9-378041395b7e,农业银行,ABC,ABC,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/ABC.svg,1,2019-04-16,loadByCsv
+fa0835d7-c0c9-4acf-8ae7-c6bb791dcb0f,建设银行,CCB,CCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/CCB.svg,1,2019-04-16,loadByCsv
+d7984c12-9588-4a78-9dfe-050fe2224448,浦发银行,,SPDB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/SPDB.svg,1,2019-04-16,loadByCsv
+f21084c0-c6be-415e-a3b6-3a21e31984f2,交通银行,COMM,BOCO,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/BOCO.svg,1,2019-04-16,loadByCsv
+f7221b87-c6a8-4ed0-ac0a-54b2433fc0e8,中信银行,CITIC,ECITIC,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/ECITIC.svg,1,2019-04-16,loadByCsv
+81e33eea-8b01-4ac2-a169-d1d713390780,光大银行,CEB,CEB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/CEB.svg,1,2019-04-16,loadByCsv
+590f615f-d482-4672-993c-370d02057bb8,兴业银行,CIB,CIB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/CIB.svg,1,2019-04-16,loadByCsv
+c5d95931-f99a-4c6f-a406-b18c6ca4bd38,平安银行,SPABANK,PINGANBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/PINGANBANK.svg,1,2019-04-16,loadByCsv
+a48cb17a-1566-4110-ab79-9ac333cb994e,上海银行,SHBANK,SHB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/SHB.svg,1,2019-04-16,loadByCsv
+b6718c9d-cbbc-49a7-b440-24ee08a5068f,北京银行,BJBANK,BCCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/BCCB.svg,1,2019-04-16,loadByCsv
+45d01dd0-7936-4055-9cd2-99bafcf80881,广州银行,GCB,GZCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/GZCB.svg,1,2019-04-16,loadByCsv
+62e082a5-e55a-403d-a7b7-d20586850132,东亚银行,HKBEA,HKBEA,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/HKBEA.svg,1,2019-04-16,loadByCsv
+9a5c0328-3b02-41ee-a678-a720c1fa5170,上海农商行,,SRCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/SRCB.svg,1,2019-04-16,loadByCsv
+46f12164-98f5-444e-9942-e552794442e9,青岛银行,QDCCB,QDCCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/QDCCB.svg,1,2019-04-16,loadByCsv
+0b5a1953-9bc4-4ba0-9c9b-0a41a351de31,兰州银行,LZYH,LZBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/LZBANK.svg,1,2019-04-16,loadByCsv
+0cc1aace-43a2-4e36-85cf-70fe807ba105,北京农商行,,BJRCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/BJRCB.svg,1,2019-04-16,loadByCsv
+9db7cf2b-bb90-4ddd-b1b9-47a7ccad09da,渤海银行,BOHAIB,CBHB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/CBHB.svg,1,2019-04-16,loadByCsv
+808cdb26-ac6d-4faf-a22f-8229dfe833f6,河北银行,BHB,SCCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/SCCB.svg,1,2019-04-16,loadByCsv
+a2a2d59b-5f74-4c9d-bcb1-f07a1c0d275a,汉口银行,HKB,HKB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/HKB.svg,1,2019-04-16,loadByCsv
+10b9ca1d-54cc-4ae6-b7f9-40c7d4a8a664,中国进出口银行,,EIB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/EIB.svg,1,2019-04-16,loadByCsv
+a6289565-fd38-4ff1-b115-091107e0391b,微商银行,,HSB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/HSB.svg,1,2019-04-16,loadByCsv
+6a70e42b-2625-4b8e-a78c-82daa2d16192,杭州银行,HZCB,HZBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/HZBANK.svg,1,2019-04-16,loadByCsv
+f1287786-571c-49ad-b996-589c4e69838a,宁波银行,NBBANK,NBCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/NBCB.svg,1,2019-04-16,loadByCsv
+86a9ffab-8def-4756-98d8-c7dae7ae2e8a,南京银行,NJCB,NJCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/NJCB.svg,1,2019-04-16,loadByCsv
+02ca40ef-4dcd-47c0-a457-06de06b964c3,浙商银行,CZBANK,CZ,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/CZ.svg,1,2019-04-16,loadByCsv
+86d860c1-762a-4af9-bcf0-8bd025197cf8,天津银行,TCCB,TCCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/TCCB.svg,1,2019-04-16,loadByCsv
+6644a822-54b0-46b0-8fe5-86645cbddc8f,成都银行,CDCB,BOCD,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/BOCD.svg,1,2019-04-16,loadByCsv
+05cd9d4a-13ad-46ba-b799-5f680faa9110,南洋商业银行,,NCBBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/NCBBANK.svg,1,2019-04-16,loadByCsv
+18ca21ac-44ce-4971-be8a-e40d3bfb192d,宁波银行,NBBANK,NBCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/NBCB.svg,1,2019-04-16,loadByCsv
+4b59d127-573d-411b-a81f-c875af9e869c,泰隆银行,,ZJTLCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/ZJTLCB.svg,1,2019-04-16,loadByCsv
+8d373d66-ad20-4cfc-9b77-a90266fedaca,国家开发银行,CDB,CDB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/CDB.svg,1,2019-04-16,loadByCsv
+4f0208e5-678f-4b37-8c93-162eacf2feef,中国农业发展银行,,ADBC,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/ADBC.svg,1,2019-04-16,loadByCsv
+bcdc52ac-2740-44a6-a101-2f5f75cd77d4,广州农商银行,GRCB,CRCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/CRCB.svg,1,2019-04-16,loadByCsv
+16680ef9-ed77-4b1e-ad47-1937c95fdf31,温州银行,WZCB,WZCBCNSH,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/WZCBCNSH.svg,1,2019-04-16,loadByCsv
+70174737-ab84-46d4-9158-f794d97a3088,安徽省农村信用社联合社,,ARCCA,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/ARCCA.svg,1,2019-04-16,loadByCsv
+96612696-f47a-46b8-bafc-55a969d84aa9,哈尔滨银行,,HRBCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/HRBCB.svg,1,2019-04-16,loadByCsv
+1923dab3-31bf-4c78-bc1c-f6fa0268ca3a,吉林农村信用社,,JINLINRCC,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/JINLINRCC.svg,1,2019-04-16,loadByCsv
+2b4a3e6c-2ede-4136-9074-2f589d80f724,吉林银行,JLBANK,JLBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/JLBANK.svg,1,2019-04-16,loadByCsv
+870ab9f9-bac7-4700-b073-ef0a11792b07,海南省农村信用社,,HAINANRCC,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/HAINANRCC.svg,1,2019-04-16,loadByCsv
+bd1f7463-0138-44b2-a57d-876bfb98b0e4,包商银行,BSB,BAOSHANGBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/BAOSHANGBANK.svg,1,2019-04-16,loadByCsv
+fd48bcbc-73bf-4bf4-8c37-8251a0fe619e,江苏银行,JSBANK,JIANGSUBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/JIANGSUBANK.svg,1,2019-04-16,loadByCsv
+cf29d142-e3c6-43ef-b211-6f2459c9a8ba,邯郸市商业银行,,HANDANCCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/HANDANCCB.svg,1,2019-04-16,loadByCsv
+c4c9c45f-33de-4472-b49e-b7c4c759da47,浙江省农村信用社,ZJNX,ZHEJIANGRCC,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/ZHEJIANGRCC.svg,1,2019-04-16,loadByCsv
+8bce429f-5b7d-4842-8e50-badb0819b454,江苏省农村信用社联合社,,JSRCCA,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/JSRCCA.svg,1,2019-04-16,loadByCsv
+e7d1cdc4-e55e-44dd-b86a-f0473489d8a1,乌海银行股份有限公司,,WUHAIBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/WUHAIBANK.svg,1,2019-04-16,loadByCsv
+82deb5f0-081c-49b6-952f-c57b1b8937c7,恒丰银行,EGBANK,HENGFENGBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/HENGFENGBANK.svg,1,2019-04-16,loadByCsv
+cec20932-380e-4124-bbc4-a3cfb1c70f07,大连银行,DLB,DALIANBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/DALIANBANK.svg,1,2019-04-16,loadByCsv
+d531ed86-c5ac-44c8-a7d1-10c80b176a46,重庆农村商业银行,CRCBANK,CHONGQINGRCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/CHONGQINGRCB.svg,1,2019-04-16,loadByCsv
+ebb291f7-93ef-4e2f-a6aa-d0061bb292b1,重庆银行,CQBANK,CHONGQINGBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/CHONGQINGBANK.svg,1,2019-04-16,loadByCsv
+555aabf3-1045-458a-a30a-380e1e7da6ba,福建省农村信用社,,FUJIANRCC,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/FUJIANRCC.svg,1,2019-04-16,loadByCsv
+30f37373-ca27-4e13-9331-4008f91bc404,龙江银行,DAQINGB,LONGJIANGBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/LONGJIANGBANK.svg,1,2019-04-16,loadByCsv
+b406782b-55bd-498b-a4c5-d31221ecbe45,厦门银行,,XIAMENBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/XIAMENBANK.svg,1,2019-04-16,loadByCsv
+2fba8382-ee3a-4ca2-9f7a-7a1b1b095384,东莞银行,BOD,DONGGUANGBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/DONGGUANGBANK.svg,1,2019-04-16,loadByCsv
+aa9d7e3f-4162-44e6-8624-1344787c82ca,广西农村信用社,,GUANGXIRCC,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/GUANGXIRCC.svg,1,2019-04-16,loadByCsv
+69e26ac4-bd82-45c9-b9b7-8775d537f3fa,柳州银行,,LIUZHOUBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/LIUZHOUBANK.svg,1,2019-04-16,loadByCsv
+e9164ff1-9bde-47d9-9b19-2d3e48151f80,云南农村信用社,,YUNNANRCC,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/YUNNANRCC.svg,1,2019-04-16,loadByCsv
+789865e2-4ef0-4843-aedf-08d150435ae0,东莞农村商业银行,DRCBCL,DONGGUANGRCB,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/DONGGUANGRCB.svg,1,2019-04-16,loadByCsv
+bbc63d5c-4736-42b4-a62e-616db758418f,昆仑银行,KLB,KUNLUNBANK,http://uncreditbank.oss-cn-shenzhen.aliyuncs.com/bank/icon/KUNLUNBANK.svg,1,2019-04-16,loadByCsv
