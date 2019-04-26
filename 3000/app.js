@@ -3,7 +3,9 @@ const app = express();
 
 
 app.post('/user/info', function (req, res) {
-    res.send('hello /user/info');
+    const str = req.headers;
+    console.log(str)
+    res.send(str);
 })
 
 app.post('/api/user/info', (req, res) => {

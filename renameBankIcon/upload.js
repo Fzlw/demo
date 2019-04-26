@@ -13,9 +13,13 @@ async function put(name, place) {
     return await client.put(name, fs.readFileSync(place))
 }
 
-async function get() {
+async function putStream(name, file) {
+    return await client.put(name, file);
+}
+
+async function get(prefix) {
     const res = await client.list({
-        "prefix": 'bank/icon'
+        "prefix": prefix
     })
     console.log(res)
 }
@@ -43,6 +47,20 @@ async function del() {
     console.log(res)
 }
 
-main()
-// get()
+async function ddd(name) {
+    return await client.delete(name)
+}
+
+// main()
+// get('bank/icon')
 // del()
+
+// 上传app程序,流式
+(async function uploadApp(fileName) {
+    const appPath = path.resolve(__dirname, `../../../../static/${fileName}`);
+    const readStream = fs.createReadStream(appPath);
+    const name = `/creditcard/v0.0.2/1556261350000/${fileName}`;
+    return await putStream(name, readStream);
+}) //('appself.plist')
+get('creditcard')
+// ddd('creditcard/v0.0.2/1556261350000/1556188456277.ipa')

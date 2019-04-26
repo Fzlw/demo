@@ -24,9 +24,10 @@ const ConsumeTypeNames = [{
 }]
 
 
-
+const redisData = {};
+const _start = Date.now()
 const data = everyPeriodSchedule_V4({
-    totalAmount: 3000,
+    totalAmount: 70000,
     start: moment('2019-04-19').valueOf(),
     end: moment('2019-04-29').valueOf(),
     min: 100,
@@ -37,21 +38,23 @@ const data = everyPeriodSchedule_V4({
     selfCostFee: 0.2,
     diffDays: 10,
     userRate: 0.1,
-    couponAmount: 100
+    couponAmount: 100,
+    redisData
 })
-let cost = 0,
-    re = 0;
-data.scheduleList.forEach(data => {
-    data.forEach(d => {
-        if (d.amount > 0) {
-            re = Decimal(re).add(d.amount)
-        } else {
-            cost = Decimal(cost).add(d.amount)
-        }
-    })
-})
-console.log(cost.toNumber(), re.toNumber())
-console.log(JSON.stringify(data.scheduleList))
+console.log(`总次数:${redisData['count']},总时间:${Date.now() - _start}ms`)
+// let cost = 0,
+//     re = 0;
+// data.scheduleList.forEach(data => {
+//     data.forEach(d => {
+//         if (d.amount > 0) {
+//             re = Decimal(re).add(d.amount)
+//         } else {
+//             cost = Decimal(cost).add(d.amount)
+//         }
+//     })
+// })
+// console.log(cost.toNumber(), re.toNumber())
+// console.log(JSON.stringify(data.scheduleList))
 
 
 
@@ -67,19 +70,21 @@ function everyPeriodSchedule_V4(options) {
         repayFee,
         selfCostFee,
         userRate,
-        couponAmount // 优惠金额
+        couponAmount, // 优惠金额
+        redisData
     } = options;
-    const selfCostRate = Caculator.sub(1, selfCostFee), // 实际可还比例
-        minRate = Caculator.sub(1, userRate),
+    const selfCostRate = Caculator.sub(1, selfCostFee, 5), // 实际可还比例
+        minRate = Caculator.sub(1, userRate, 5),
         maxCostAmount = Caculator.div(totalAmount, selfCostRate), // 实际最大消费金额
         count = getCostCountByLimit(options), // 获取消费次数
         consumeLastIndex = ConsumeTypeNames.length - 1;
-    const timeObj = {},
+    let timeObj = {},
         costArr = [],
-        consumeArr = [];
-    let _count = count,
+        consumeArr = [],
+        _count = count,
         gatherCostAmount = 0,
         diff = maxCostAmount;
+    const start_1 = Date.now()
     while (_count > 0 && diff > min) {
         const stamp = Random.randomRangeInt(start, end),
             date = moment(stamp).format('YYYYMMDD');
@@ -99,7 +104,8 @@ function everyPeriodSchedule_V4(options) {
             _count--;
         }
     }
-    // -------------------
+    console.log(`1-----------------${Date.now() - start_1}ms`)
+    // 处理diff,和消费总额相等
     let changeIndex = -1;
     if (diff >= 0) {
         changeIndex = costArr.indexOf(Math.max(...costArr))
@@ -110,10 +116,11 @@ function everyPeriodSchedule_V4(options) {
     const timeObjKeys = Object.keys(timeObj),
         result = [];
     let recordCount = 0, // 总执行次数
-        handingFee = 0,
-        actualHandingFee = 0,
-        coupon = couponAmount,
+        handlingFee = 0, // 总手续费 
+        actualHandlingFee = 0, // 实际所需手续费
+        coupon = couponAmount, // 剩余优惠金额
         startIndex = 0;
+    const start_2 = Date.now()
     timeObjKeys.forEach(key => {
         const curTimes = timeObj[key]['times'],
             endIndex = startIndex + curTimes.length,
@@ -136,21 +143,21 @@ function everyPeriodSchedule_V4(options) {
         });
         result.push(recordList);
         coupon = restCouponAmount;
-        actualHandingFee = Caculator.add(actualHandingFee, actualFee);
-        handingFee = Caculator.add(handingFee, allFee);
+        actualHandlingFee = Caculator.add(actualHandlingFee, actualFee);
+        handlingFee = Caculator.add(handlingFee, allFee);
         recordCount += recordList.length;
         startIndex = endIndex;
     })
-    // 检查剩余优惠金额是否为0  TODO 
-    return {
-        scheduleList: result,
-        count: recordCount,
-        fee: actualHandingFee,
-        actualFee: actualHandingFee,
-        coupon: Caculator.sub(actualHandingFee, actualHandingFee),
-        userRate: userRate,
-        userFee: repayFee
-    }
+    console.log(`函数调用总时间:${Date.now() - start_2}ms`)
+    // 检查剩余优惠金额是否为0  优惠金额不大，暂不用使用递归
+    redisData['scheduleList'] = result;
+    redisData['count'] = recordCount;
+    redisData['fee'] = handlingFee;
+    redisData['actualFee'] = actualHandlingFee;
+    redisData['coupon'] = Caculator.sub(couponAmount, coupon);
+    redisData['userRate'] = Caculator.mul(userRate, 100, 2);
+    redisData['userFee'] = repayFee;
+    return true;
 }
 
 function cacuCurCostAndRepay_V4(options) {
