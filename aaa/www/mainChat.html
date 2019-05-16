@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width,initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <title>工作交流系统</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/chat.css" />
+    <link rel="stylesheet" href="css/response.css" />
+    <link rel="stylesheet" href="css/data_view.css" />
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.emoji.min.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <style>
+        .fileInputContainer {
+            position: relative;
+            background-size: 100% 100%;
+            background: url(images/circle-26.png) no-repeat;
+            width: 20px;
+            height: 20px;
+        }
+
+        .fileInput {
+            height: 50px;
+            overflow: hidden;
+            font-size: 300px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+        }
+
+        #triangle-up {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #fff;
+            position: absolute;
+            top: -10px;
+            left: 60px;
+        }
+
+        .chat_time {
+            text-align: center;
+            font-size: 17px;
+            line-height: 3em;
+        }
+
+        .left_list {
+            position: relative;
+            width: 300px;
+        }
+
+        .kefu_img {
+            height: 171px;
+            width: 300px;
+            background-color: white;
+            margin-top: 10px;
+        }
+
+        .logos {
+            margin-left: 40px;
+            margin-top: 43px;
+            overflow: hidden;
+        }
+
+        .left_list {
+            height: 600px;
+            width: 300px;
+            background-color: white;
+        }
+
+        .message_list {
+            margin-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 7px;
+        }
+
+        #linkman {
+            /* padding-left: 7px;
+            padding-top: 5px; */
+        }
+
+        .right_side {
+            position: relative;
+            width: 871px;
+            height: 780px;
+            left: 16px;
+            top: 9px;
+            background-color: white;
+        }
+
+        .deles {
+            position: absolute;
+            right: 10px;
+            top: 16px;
+        }
+
+        .chat_body {
+            position: absolute;
+            width: 850px;
+            top: 100px;
+        }
+
+        .show_bb {
+            list-style: none;
+            position: absolute;
+            left: 25px;
+            margin-right: 5px;
+            width: 800px !important;
+        }
+
+        .biaoq {
+            width: 22px;
+            height: 21px;
+            position: absolute;
+            left: 54px;
+            bottom: 105px;
+        }
+
+        .fasons {
+            width: 24px;
+            height: 18px;
+            position: absolute;
+            left: 77px;
+            bottom: 107px;
+        }
+
+        .record {
+            background-color: transparent;
+        }
+
+        .left_lists {
+            background: white;
+            margin-top: 10px;
+            width: 300px;
+            height: 599px;
+        }
+
+        .left_lists #myTab .active {
+            border-bottom: 4px solid #FF5655;
+            ;
+        }
+
+        /*#myTab li a{background: transparent;}*/
+
+        .left_lists #myTab a,
+        #myTab a:hover {
+            text-decoration: none;
+            background-color: transparent;
+            color: #999999;
+        }
+
+        .list_item {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .list_item img {
+            margin-top: 5px;
+            margin-left: 6px;
+        }
+
+        .lights {
+            background-color: #FFEDED;
+        }
+
+        .show_bb span {
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            position: absolute;
+            top: 25px;
+        }
+
+        .bb_leftbox span {
+            border-right: 10px solid #F0F0F0;
+            left: -10px;
+        }
+
+        .bb_rightbox span {
+            border-left: 10px solid #F5F5F5;
+            right: -10px;
+        }
+
+        .items_a {
+            list-style: none;
+            position: absolute;
+            margin-right: 5px;
+            width: 800px !important;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .show_bb {
+            list-style: none;
+            margin-right: 5px;
+            width: 800px !important;
+            overflow-y: scroll;
+            height: 500px;
+        }
+
+        .message_num1 {
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+            background-color: red;
+            text-align: center;
+            position: absolute;
+            font-size: 12px;
+            line-height: 20px;
+            right: 16px;
+            top: 22px;
+            color: white;
+            line-height: 15px;
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+        }
+
+        .fast_reply {
+            height: 20px;
+            position: absolute;
+            left: 16px;
+            bottom: 107px;
+        }
+
+
+        /*.reply_content li{list-style: none;border-bottom: 1px solid #FFFFFF;padding: 5px 0px 5px 5px;}*/
+
+        /*.reply_content li:hover{background: RGB(41,191,255);}*/
+
+        /*.reply_content ul{border-left:1px solid #FFFFFF ;margin-bottom: 0px;    height: 420px; overflow-y: scroll;width: 343px;}*/
+
+        .main_reply {
+            width: 328px;
+            overflow-y: hidden;
+            overflow-x: hidden;
+            background-color: #e7f2ff;
+            color: #2e515f;
+            padding: 10px 0px;
+            font-size: 14px;
+        }
+
+        .codes {
+            color: #000000;
+            padding-left: 20px;
+        }
+
+        .dropdown-menu {
+            min-width: 140px;
+        }
+
+        .dropdown-menu li {
+            line-height: 35px;
+            height: 35px;
+        }
+
+        .main_reply .face {
+            font-size: 20px;
+            display: inline-block;
+            width: 35px;
+            text-align: center;
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .main_reply .face:hover {
+            background-color: #FF5655;
+        }
+
+        .contentWrap {
+            z-index: 10;
+            width: 300px;
+            height: calc(100% - 0px);
+            height: 553px;
+            overflow: hidden;
+        }
+
+        .contentMain {
+            overflow-y: scroll;
+            padding-left: 15px;
+            width: 315px;
+            height: 522px;
+        }
+
+        .searchkey {
+            position: relative;
+            display: table;
+            border-collapse: separate;
+            width: 350px;
+            height: 28px;
+            margin-left: 469px;
+            margin-top: 10px;
+        }
+
+        .fast_replys {
+            height: 20px;
+            position: absolute;
+            left: 95px;
+            bottom: 104px;
+        }
+
+        .modal-content {
+            width: 420px;
+            height: 425px;
+            top: 166px;
+            left: 216px;
+        }
+
+        .modal-header {
+            background-color: #FF5655;
+            height: 53px;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            line-height: 23px;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .psd {
+            width: 361px;
+            height: 51px;
+            margin-bottom: 20px;
+            background-color: #F7F7F7;
+            padding-left: 20px;
+            margin-left: 13px;
+            border: none;
+            outline: medium;
+        }
+
+        .modal-footer {
+            border: none;
+            margin-top: 25px;
+        }
+
+        .tijiaos {
+            background-color: #FF5655;
+            color: #fff;
+        }
+
+        .add_friend {
+            float: right;
+            /* margin-right: 100px; */
+            /* position: relative; */
+            /* top: 38px; */
+            /* right: 219px; */
+        }
+
+        .add_friend input {
+            color: black;
+            width: 200px;
+            padding-right: 60px;
+        }
+
+        /* .add_f {
+            position: absolute;
+            right: 47px;
+            top: 13px;
+            cursor: pointer;
+        } */
+
+        .chaxt {
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        #lxr,
+        #jsry {
+            height: 30px;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        #linkmans .content {
+            float: right;
+            margin-right: 10px;
+            margin-top: 10px;
+            width: 0px;
+            height: 5px;
+            border: 5px solid;
+            border-color: #666 transparent transparent transparent;
+        }
+
+        #linkmans .content2 {
+            float: right;
+            margin-right: 10px;
+            margin-top: 10px;
+            width: 0px;
+            height: 5px;
+            border: 5px solid;
+            border-color: transparent transparent #666 transparent;
+        }
+
+        #jieru_list {
+            width: 290px;
+            height: 700px;
+        }
+
+        #jieru_list .jieru {
+            position: relative;
+            width: 290px;
+            height: 70px;
+            padding-left: 20px;
+            box-sizing: border-box;
+
+        }
+
+        .jieru .jieru-content {
+            border-bottom: 1px solid #999999;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        #jieru_list .jieru_img {
+            width: 50px;
+            height: 70px;
+            line-height: 70px;
+        }
+
+        #jieru_list .jieru_text {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 210px;
+            height: 70px;
+            font-size: 12px;
+            overflow: hidden;
+        }
+
+        #jieru_list .jieru_text p {
+            margin-bottom: 0;
+        }
+
+        #jieru_list .jieru_btn {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            position: relative;
+            left: -20px;
+            top: 0px;
+            width: 290px;
+            height: 70px;
+            background-color: #FF5655;
+            opacity: 0.3;
+        }
+
+        .jieru .jieru-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 25px;
+            line-height: 25px;
+            font-size: 10px;
+            color: #000;
+            text-align: center;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .jieru .jieru-btn:hover {
+            color: #fff;
+            background-color: #ff5655;
+        }
+
+        .jieru .reply-btn {
+            right: 100px;
+        }
+
+        .jieru .jieru-mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 290px;
+            height: 70px;
+            background-color: rgb(255, 86, 85, .5);
+        }
+
+        #jieru_number {
+            display: flex;
+            justify-content: center;
+            padding-top: 15px;
+            height: 80px;
+            width: 290px;
+            text-align: center;
+            color: #666;
+        }
+
+        #jieru_number .number_1 {
+            height: 30px;
+            width: auto;
+            line-height: 30px;
+            /* overflow: hidden; */
+            /* float: left; */
+        }
+
+        #jieru_number .number_1 span {
+            margin: 0px 5px 0px 5px;
+        }
+
+        #jieru_number .num-left {
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgb(175, 174, 174);
+            border-radius: 4px;
+        }
+
+        #jieru_number .num-right {
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgb(175, 174, 174);
+            border-radius: 4px;
+        }
+
+        .jieru_msg {
+            display: none;
+            position: absolute;
+            font-size: 14px;
+            width: 500px;
+            height: 400px;
+            background-color: rgb(255, 206, 206);
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+        }
+
+        .msg-time,
+        .msg-text {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            min-height: 40px;
+            overflow: hidden;
+            word-break: break-all;
+            /*只是强制换行，不管文字是否相同*/
+            margin-top: 10px;
+        }
+
+        .jieru_msg .msg-icn img {
+            border-radius: 50%;
+            /* margin-right: 5px; */
+        }
+
+        .jieru-msg-list {
+            overflow: scroll;
+            overflow-x: hidden;
+            height: 320px;
+        }
+
+        .jieru-msg-list .msg-text span {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 40px;
+            max-width: 400px;
+        }
+
+        .jieru_msg .msg-time {
+            justify-content: center;
+        }
+
+        .msg-icn {
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+        }
+
+        .msg-btn {
+            display: flex;
+            padding-top: 20px;
+            justify-content: center;
+            /* flex-direction: column; */
+        }
+
+        .msg-btn div {
+            font-size: 12px;
+            margin-left: 20px;
+            text-align: center;
+            line-height: 30px;
+            color: #000;
+            background-color: rgb(255, 255, 255);
+            width: 80px;
+            height: 30px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .msg-btn div:hover {
+            color: rgb(255, 255, 255);
+            background-color: #ff5655;
+        }
+
+        .jieru-lisi-num {
+            color: #ff5655;
+        }
+    </style>
+</head>
+
+<body style="background-color: #e5e5e5">
+    <div class="container-fluid" id="success_loginchat">
+        <nav class="navbar navbar-default">
+            <div class="wraper">
+
+                <div class="logo" style="height: 100px;width: 400px;">
+                    <span class="logo_name">客服管理系统</span>
+                    <!-- <span class="logo_welcome"></span> -->
+                    <span class="logo_english">Customer service management system</span>
+                </div>
+
+                <div style=" width: 100px;height: 26px;float: right;margin-top: 32px;">
+                    <div class="dropdown menu">
+                        <div class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                            <i class="xiaoren"></i>
+                            <span>账户中心</span>
+                        </div>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="left: -30px;padding: 0;width: 140px;">
+                            <div id="triangle-up"></div>
+                            <li role="presentation" class="lixiu">
+                                <a class="text-center" role="menuitem" id="" tabindex="-1" data-toggle="modal" data-target="#myModal">
+                                    <img class="imgxiu" style="position: relative;top:-2px;right: 10px;width: 15px;height: 15px;" src="images/weidian.png" alt="">修改密码</a>
+                            </li>
+                            <li role="presentation" class="litui">
+                                <a class="text-center" role="menuitem" id="exit" tabindex="-1" href="#">
+                                    <img class="imgtui" style="position: relative;top:-2px;right: 10px;width: 15px;height: 15px;" src="images/tuichu.png" alt="">退出登录</a>
+                            </li>
+                            <li role="presentation" class="liqing">
+                                <a class="text-center" role="menuitem" id="clearMessage" tabindex="-1" href="#">
+                                    <img class="imgqing" style="position: relative;top:-2px;right: 10px;width: 15px;height: 15px;" src="images/meidian.png" alt="">清除记录</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="add_friend">
+                    <div style="display:none;height: 26px;width: 266px; float: left;margin-top: 40px" class="input_text">
+                        <input type="text" name="link_account" class="link_account" />
+                        <img src="images/ic-sousuo.png" class="add_f chax" width="18px" height="18px" style="position: relative; right: 30px;" />
+                        <img src="images/ic-chacha.png" class="add_f qcan" width="18px" height="18px" style="position: relative; right: 80px; display: none;"
+                        />
+                    </div>
+                    <div class="chaxt" style="float: left;margin-top: 40px;margin-left: -50px;height: 26px;line-height: 26px;">查找</div>
+
+                    <!-- <div class="sear_box" style="display: inline-block;">
+                        <input type="text" value="" name="link_account" class="link_account" />
+                        <img src="images/search.jpg" class="add_f chax" width="20px" height="20px" />
+                    </div> -->
+
+                </div>
+
+
+            </div>
+        </nav>
+        <div style=" width: 1500px;height: 1000px; margin: 0px auto;">
+            <!--左边部分-->
+            <div class="left_side" style='float: left;width: 300px;'>
+                <div class="kefu_img clearfix">
+                    <img src="images/dakefu.png" class="logos" width="81" height="81">
+                    <span class="kefu_img_sp"></span>
+                    <i class="icon-state"></i>
+                </div>
+                <div style="height: 50px; width: 100%; background-color: white;margin-top: 10px;" class="sjtj-btn">
+                    <div style="height: 50px; display: flex; justify-content: flex-start;align-items:center;padding: 10px;color:  #ff5655">
+                        <img style="height: 20px; width: 24px;" src="./images/shuju.png" alt="">
+                        <p style="margin: 0 0 0 0; width: 230px;padding-left: 10px;">数据统计</p>
+                        <p style="margin: 0 0 0 0;">&#8250;</p>
+                    </div>
+                </div>
+                <div class="left_lists">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active col-md-6 col-sm-6 record record_list">
+                            <a href="#chat_history" data-toggle="tab">
+                                消息记录
+                            </a>
+                            <!--<span class ="message_num1"></span>-->
+                        </li>
+                        <li class="col-md-6 col-sm-6 record">
+                            <a href="#linkmans" data-toggle="tab">联系人表</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="chat_history">
+                            <ul class="nav nav-pills nav-stacked message_list" id="message_list">
+                                <!--左边联系人列表-->
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade contentWrap" id="linkmans">
+                            <div>
+                                <div id="lxr" style="padding-left: 15px">
+                                    <span>联系人</span>
+                                    <span id='lxrrs'></span>
+                                    <div id='lxrcont' class="content"></div>
+                                </div>
+                                <ul class="nav nav-pills nav-stacked contentMain" id="linkman">
+                                </ul>
+                            </div>
+                            <div>
+                                <div id="jsry" style="padding-left: 15px">
+                                    <span>技术人员</span>
+                                    <span id='lxrrs'></span>
+                                    <div id='jsrycont' class="content"></div>
+                                </div>
+                                <ul class="nav nav-pills nav-stacked contentMain" id="linkman2">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_side" style="float: left;">
+                <div class="top_bar ">
+                    <img class="img_show" src="images/team-18.png" width="40px" height="40px">
+                    <span class="name_show">小明明</span>
+
+                    <div class="input-group searchkey">
+                        <input type="text" class="form-control" id="searchs" placeholder="搜索输入">
+                        <span class="input-group-btn" id="search">
+                            <button class="btn btn-default" type="button" style="height: 34px;">
+                                <img src="images/ic-sousuo.png" width="20px" height="20px" />
+                            </button>
+                        </span>
+                    </div>
+                    <!-- /input-group -->
+                    <a href="javascript:;">
+                        <img src="images/ic-lajitong.png" class="deles">
+                    </a>
+                </div>
+
+                <div class="chat_body">
+                    <div class="items_a">
+                        <!--<ul class="show_bb" >
+                    	
+                    </ul>-->
+                    </div>
+                </div>
+                <div class="editor_box">
+                    <div class="emoji_file">
+
+                        <img src="images/circle-25.png" class="biaoq" alt="">
+
+
+                        <!--<img src="images/circle-26.png" class="fasons hidden"  alt="">-->
+
+
+                        <img src="images/circle-29.png" class="fast_reply" alt="">
+                        <!--<div class="jq_file_div" id="jq_fi_id_图标" style="display:none">
+                                <input type="file" id="jq_fi_图标" name="fileUpload" onclick="jq_file_func('图标','ali')"  >
+                                </div>
+                                <img src="images/circle-26.png" class="fast_replys"  alt="">  -->
+                        <div class="fast_replys fileInputContainer">
+                            <input type="file" class="fileInput" id="fileUpload" name="fileUpload" onchange="jq_file_func('图标','ali')">
+                        </div>
+                    </div>
+                    <!--<div class="editor_message" contenteditable = "true" onkeydown="JavaScript:replaceLikeVal(this)"></div>-->
+                    <div class="editor_message" contenteditable="true"></div>
+                    <div>
+                        <a class="sendBtn" href="javascript:;">发送</a>
+                    </div>
+                    <div class="reply_content" id="reply_content" style="display: none">
+                        <!--<div class="main_reply" id="main_reply">-->
+                        <div class="content_top">
+                            <div class="system">
+                                <p>系统回复</p>
+                                <span></span>
+                            </div>
+                            <div class="custom">
+                                <p>自定义回复</p>
+                                <span style="display: none"></span>
+                            </div>
+                            <div class="common">
+                                <p>常见问题</p>
+                                <span style="display: none"></span>
+                            </div>
+                        </div>
+                        <div class="content_main">
+                            <!--系统快捷语列表-->
+                            <div class="system-wrap list-wrap">
+                                <ul class="system-list">
+                                </ul>
+                            </div>
+                            <!--自定义快捷语-->
+                            <div class="custom-wrap list-wrap" style="display: none">
+                                <ul class="custom-list">
+                                    <div class="add_li">
+                                        <img src="images/reply1.png" alt="">
+                                        <span>增加</span>
+                                    </div>
+                                </ul>
+                            </div>
+                            <!--自定义快捷语-->
+                            <div class="common-wrap list-wrap" style="display: none">
+                                <ul class="common-list">
+
+                                    <div class="add_li2">
+                                        <span>增加</span>
+                                    </div>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--</div>-->
+
+                    <div class="reply_content" id="emojis" style="display: none">
+                        <div class="main_reply" id="main_emojis">
+                            <span class="face">😄</span>
+                            <span class="face">😀</span>
+                            <span class="face">😊</span>
+                            <span class="face">😉</span>
+                            <span class="face">😍</span>
+                            <span class="face">😘</span>
+                            <span class="face">😚</span>
+                            <span class="face">😗</span>
+                            <span class="face">😙</span>
+                            <span class="face">😜</span>
+                            <span class="face">😝</span>
+                            <span class="face">😛</span>
+                            <span class="face">😗</span>
+                            <span class="face">😳</span>
+                            <span class="face">😁</span>
+                            <span class="face">😔</span>
+                            <span class="face">😌</span>
+                            <span class="face">😒</span>
+                            <span class="face">😞</span>
+                            <span class="face">😣</span>
+                            <span class="face">😢</span>
+                            <span class="face">😂</span>
+                            <span class="face">😭</span>
+                            <span class="face">😪</span>
+                            <span class="face">😥</span>
+                            <span class="face">😰</span>
+                            <span class="face">😅</span>
+                            <span class="face">😓</span>
+                            <span class="face">😩</span>
+                            <span class="face">😫</span>
+                            <span class="face">😨</span>
+                            <span class="face">😱</span>
+                            <span class="face">😠</span>
+                            <span class="face">😡</span>
+                            <span class="face">😤</span>
+                            <span class="face">😖</span>
+                            <span class="face">😆</span>
+                            <span class="face">😋</span>
+                            <span class="face">😷</span>
+                            <span class="face">😎</span>
+                            <span class="face">😴</span>
+                            <span class="face">😵</span>
+                            <span class="face">😲</span>
+                            <span class="face">😟</span>
+                            <span class="face">😦</span>
+                            <span class="face">😧</span>
+                            <span class="face">😈</span>
+                            <span class="face">👿</span>
+                            <span class="face">😮</span>
+                            <span class="face">😬</span>
+                            <span class="face">😐</span>
+                            <span class="face">😕</span>
+                            <span class="face">😯</span>
+                            <span class="face">😶</span>
+                            <span class="face">😇</span>
+                            <span class="face">😏</span>
+                            <span class="face">😑</span>
+                            <span class="face">😺</span>
+                            <span class="face">😸</span>
+                            <span class="face">😻</span>
+                            <span class="face">😽</span>
+                            <span class="face">😼</span>
+                            <span class="face">🙀</span>
+                            <span class="face">😿</span>
+                            <span class="face">😹</span>
+                            <span class="face">😾</span>
+                            <span class="face">👹</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_box" style="float: left; width: 290px; height: 780px;margin-top: 10px;background-color: #fff;margin-left: 36px;">
+                <div id='jieru_list'>
+                </div>
+                <div id="jieru_number">
+                    <div class="number_1">
+                        <span class="number-dq"></span>/
+                        <span class="number-max"></span>
+                    </div>
+                    <div class="number_1 num-left">&#8249;</div>
+                    <div class="number_1 num-context"></div>
+                    <div class="number_1 num-right">&#8250;</div>
+                </div>
+            </div>
+            <!-- 未接入消息记录 -->
+            <div class="jieru_msg">
+                <div class="jieru-msg-list">
+
+                </div>
+                <div class="msg-btn">
+
+                </div>
+            </div>
+
+            <!--数据统计-->
+            <div class="data_view" style="display: none;">
+                <div class="data_table">
+                    <div class="table_top">
+                        <div class="select_box">
+                            <select class="table_select" id="table_select" value="商城">
+                                <option value="商城">商城客服</option>
+                                <option value="同城">同城到家客服</option>
+                                <option value="休闲娱乐">休闲娱乐客服</option>
+                                <option value="美食">美食客服</option>
+                                <option value="旅游">旅游客服</option>
+                                <option value="酒店">酒店客服</option>
+                                <option value="加油卡">加油卡客服</option>
+                                <option value="充值">充值客服</option>
+                                <option value="油惠">油惠客服</option>
+                                <option value="油站">油站客服</option>
+                                <option value="拓展商家">拓展商家客服</option>
+                            </select>
+                            <span class="down-arrow"></span>
+                        </div>
+                        <div class="date_label">
+                            <div class="date_select">
+                                <input type="text" readonly class="date_input" id="table_date_start" value="2018-11-02" />
+                            </div>
+                            <div class="date_span">至</div>
+                            <div class="date_select">
+                                <input type="text" readonly class="date_input" id="table_date_end" value="2018-11-02" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table_container">
+                        <table class="table_main">
+                            <thead>
+                                <tr class="table_header">
+                                    <th>名称</th>
+                                    <th>接待用户数量</th>
+                                    <th>问题已解决</th>
+                                    <th>问题未解决</th>
+                                    <th>未评价</th>
+                                    <th>用户评价
+                                        <span class="light_font">（点击星星查看详情）</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="table_body" id="table_body"></tbody>
+                        </table>
+                    </div>
+                    <div class="page_container"></div>
+                </div>
+                <div class="data_charts">
+                    <div class="charts_top">
+                        <select class="charts_select" id="charts_select" value="全部"></select>
+                        <div class="date_label">
+                            <div class="date_select charts_input">
+                                <input type="text" readonly class="date_input" id="charts_date_start" value="2018-11-02" />
+                            </div>
+                            <div class="date_span">至</div>
+                            <div class="date_select charts_input">
+                                <input type="text" readonly class="date_input" id="charts_date_end" value="2018-11-02" />
+                            </div>
+                        </div>
+                    </div>
+                    <div id="charts_main" style="width: 100%;height:300px;"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-contents">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>-->
+                    <h4 class="modal-title" id="myModalLabel">
+                        修改密码
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <!--在这里添加一些文本11-->
+                    <input type="password" name="old_psd" class="psd" id='old_psd' placeholder="原密码" />
+                    <input type="password" name="new_psd" class="psd" id='new_psd' placeholder="新密码" />
+                    <input type="password" name="sure_psd" class="psd" id='sure_psd' placeholder="确认密码" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn  btn-lg btn-block tijiaos">
+                        提交
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+        <script src="./js/indexeddb.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="./js/socket.js"></script>
+        <script src="./js/mainChat.js"></script>
+        <script src="./js/reply.js"></script>
+        <script src="./js/clean.js"></script>
+        <script src="./js/ajaxfileupload.js"></script>
+        <script src="./js/laydate/laydate.js"></script>
+        <script src="./js/echarts.min.js"></script>
+        <script type="text/javascript">
+            function jq_file_func(name, type) {
+                var lights = $(".lights").attr('id');
+                if (!lights) {
+                    alert("请选择联系人");
+                    return false;
+                }
+                var files = document.getElementById('fileUpload').files;
+                var size = files[0].size;
+                size = parseFloat((size / 1024).toFixed(2));
+                if (size > 500) {
+                    alert('图片不能超过500kb');
+                    return;
+                }
+                var timestamp = Date.parse(new Date());
+                var parameter = "img" + timestamp;
+                $(".show_bb").append('<li class="bb_rightbox"><img class="bb_rightimg" src="images/kefu.png"><div class="bb_rightwraps" style="position: relative"><i class="fa fa-spin fa-refresh ' + parameter + '" style="position: absolute;left: -35px;top: 35px;"></i><img id="' + parameter + '" src="images/flie.png" style="max-width:576px"/></div></li>')
+                $('.show_bb').scrollTop($('.show_bb')[0].scrollHeight);
+                var url = ips + "/temp";
+                $.ajaxFileUpload({
+                    url: url, //需要链接到服务器地址  
+                    secureuri: true,
+                    fileElementId: "fileUpload", //文件选择框的id属性
+                    dataType: 'json',
+                    type: 'post',
+                    success: function (data, status) {
+                        if (data.状态 == '成功') {
+                            jq_file_funcs(name, data, parameter);
+
+                        } else {
+                            alert(data.状态);
+                        }
+
+                        $('#fileUpload').remove();
+                        $('.fast_replys').append('<input type="file" class="fileInput" id="fileUpload" name="fileUpload" onchange="jq_file_func(\'图标\',\'ali\')" >');
+                    },
+                    error: function (data, status, e) {
+                        showDialogWithMsg('ideaMsg', '提示', '文件错误！');
+                        $("#add").css({
+                            "display": "none"
+                        });
+                    }
+                });
+            }
+            $('.sjtj-btn').click(function () {
+
+                if($(".data_view").is(":hidden")){
+                    $('.right_side').hide();
+                    $('.right_box').hide();
+                    $('.data_view').show();
+                }else{
+                    $('.right_side').show();
+                    $('.right_box').show();
+                    $('.data_view').hide();
+                }
+                
+                //表格店铺类别切换
+                var shopType = "商城";
+                var serAccount = "全部";
+                var page = 1;
+                $(".table_select").val("商城");
+                $("#table_select").on("change", function () {
+                    shopType = $(this).val();
+                    serAccount = "全部";
+                    $("#charts_select").val("全部");
+                    serviceList(shopType, page, tableStartDate, tableEndDate);
+                })
+
+                $("#charts_select").on("change", function () {
+                    serAccount = $(this).val();
+                    charts(serAccount, shopType, chartsStartDate, chartsEndDate);
+                })
+                //获取当前日期
+                var myDate = new Date();
+                var _year = myDate.getFullYear();
+                var _month = myDate.getMonth() + 1;
+                var _date = myDate.getDate();
+                _month = _month < 10 ? "0" + _month : _month;
+                _date = _date < 10 ? "0" + _date : _date;
+                var nowDate = _year + "-" + _month + "-" + _date;
+                var tableStartDate = xDate(nowDate, -14);
+                var tableEndDate = nowDate;
+                var chartsStartDate = xDate(nowDate, -14);
+                var chartsEndDate = nowDate;
+                //表格区块开始日期选择控件
+                var tableSelectStart = laydate.render({
+                    elem: '#table_date_start', //指定元素
+                    value: tableStartDate, //默认日期(当前日期前15天)
+                    max: nowDate, //最大日期
+                    theme: '#ff5655', //主题色
+                    btns: ['now', 'confirm'], //控件按钮
+
+                    //控件选择完毕后的回调
+                    done: function (value) {
+                        tableStartDate = value;
+                        if (tableStartDate > tableEndDate) {
+                            tableEndDate = tableStartDate;
+                            $("#table_date_end").val(tableEndDate);
+                        }
+                        serviceList(shopType, page, tableStartDate, tableEndDate);
+                    }
+                });
+                //表格区块结束日期选择控件
+                var tableSelectEnd = laydate.render({
+                    elem: '#table_date_end', //指定元素
+                    value: tableEndDate, //默认日期
+                    max: nowDate, //最大日期
+                    theme: '#ff5655', //主题色
+                    btns: ['now', 'confirm'], //控件按钮
+
+                    //控件选择完毕后的回调
+                    done: function (value) {
+                        tableEndDate = value; //选择后的结束日期
+                        if (tableEndDate < tableStartDate) {
+                            tableStartDate = tableEndDate;
+                            $("#table_date_start").val(tableStartDate);
+                        }
+                        serviceList(shopType, page, tableStartDate, tableEndDate);
+                    }
+                });
+                //图表区块开始日期选择控件
+                var chartsSelectStart = laydate.render({
+                    elem: '#charts_date_start', //指定元素
+                    value: chartsStartDate, //默认日期(当前日期前15天)
+                    max: nowDate, //最大日期
+                    theme: '#ff5655', //主题色
+                    btns: ['now', 'confirm'], //控件按钮
+
+                    //控件选择完毕后的回调
+                    done: function (value) {
+                        chartsStartDate = value;
+                        var newDate = chartsStartDate.split("-");
+                        var afterDate = xDate(chartsStartDate, 14);
+                        if (chartsStartDate > chartsEndDate) {
+                            if (afterDate > nowDate) {
+                                chartsEndDate = nowDate;
+                                $("#charts_date_end").val(nowDate);
+                            } else {
+                                chartsEndDate = afterDate;
+                                $("#charts_date_end").val(afterDate);
+                            }
+                        } else {
+                            if (afterDate < chartsEndDate) {
+                                chartsEndDate = afterDate;
+                                $("#charts_date_end").val(afterDate);
+                            }
+                        }
+
+                        charts(serAccount, shopType, chartsStartDate, chartsEndDate);
+                    }
+                });
+
+                //图表区块结束日期选择控件
+                var chartsSelectEnd = laydate.render({
+                    elem: '#charts_date_end', //指定元素
+                    value: chartsEndDate, //默认日期
+                    max: nowDate, //最大日期
+                    theme: '#ff5655', //主题色
+                    btns: ['now', 'confirm'], //控件按钮
+
+                    //控件选择完毕后的回调
+                    done: function (value) {
+                        chartsEndDate = value; //选择后的结束日期
+                        var newDate = chartsEndDate.split("-");
+
+                        var beforeDate = xDate(chartsEndDate, -14);
+                        var afterDate = xDate(chartsStartDate, 14);
+                        if (chartsEndDate < chartsStartDate) {
+                            chartsStartDate = beforeDate;
+                            $("#charts_date_start").val(beforeDate);
+                        } else {
+                            if (chartsStartDate < beforeDate) {
+                                chartsStartDate = beforeDate;
+                                $("#charts_date_start").val(beforeDate);
+                            }
+                        }
+
+                        charts(serAccount, shopType, chartsStartDate, chartsEndDate);
+                    }
+                });
+
+                //获取某一天前或者后x天的日期--date：开始推算日期，type：往后推算type天（正值），往前推算type天（负值）
+                function xDate(date, type) {
+                    var mDate = new Date(date);
+                    mDate.setDate(mDate.getDate() + type)
+                    var m_year = mDate.getFullYear();
+                    var m_month = mDate.getMonth() + 1;
+                    var m_date = mDate.getDate();
+                    m_month = m_month < 10 ? "0" + m_month : m_month;
+                    m_date = m_date < 10 ? "0" + m_date : m_date;
+                    var newXDate = m_year + "-" + m_month + "-" + m_date;
+                    return newXDate;
+                }
+
+                //评价详情
+                $(".table_body").on("mouseenter", ".evaluate_td", function () {
+                    $(this).children(".evaluate_detail").show();
+                    $(this).children(".evaluate_detail").addClass("show_detail");
+                })
+                $(".table_body").on("mouseleave", ".evaluate_td", function () {
+                    $(this).children(".evaluate_detail").hide();
+                    $(this).children(".evaluate_detail").removeClass("show_detail");
+                })
+                //分页
+                //上一页
+                $(".page_container").on("click", ".perv_btn", function () {
+                    if ($(this).next().hasClass("current_page")) {
+                        return false;
+                    } else {
+                        var _this = $(".current_page");
+                        page = _this.prev().text();
+                        _this.removeClass("current_page");
+                        _this.prev().addClass("current_page");
+                        serviceList(shopType, page, tableStartDate, tableEndDate);
+                    }
+                });
+                //下一页
+                $(".page_container").on("click", ".next_btn", function () {
+                    if ($(this).prev().hasClass("current_page")) {
+                        return false;
+                    } else {
+                        var _this = $(".current_page");
+                        page = _this.next().text();
+                        _this.removeClass("current_page");
+                        _this.next().addClass("current_page");
+                        serviceList(shopType, page, tableStartDate, tableEndDate);
+                    }
+                });
+                //点击页码
+                $(".page_container").on("click", "span", function () {
+                    if ($(this).hasClass("current_page")) {
+                        return false;
+                    }
+                    $(this).addClass("current_page").siblings().removeClass("current_page");
+                    page = $(this).text();
+                    serviceList(shopType, page, tableStartDate, tableEndDate);
+                });
+                //客服列表
+                function serviceList(shopType, page, start, end) {
+                    var data = {};
+                    data.店铺类别 = shopType;
+                    data.开始日期 = start;
+                    data.结束日期 = end;
+                    data.页数 = page;
+                    data = JSON.stringify(data);
+                    $.ajax({
+                        type: "POST",
+                        url: "/ajax.post?func=selectServiceList",
+                        data: 'data=' + data,
+                        success: function (r) {
+                            if (r.状态 == "成功") {
+                                var listHtml = '';
+                                var pageItem = '';
+                                var pageList = '';
+                                $("#charts_select").html("");
+                                $("#charts_select").append('<option value="全部">全部</option>');
+                                for (var p = 1; p <= r.总页数; p++) {
+                                    if (p == page) {
+                                        pageItem += '<span class="current_page">' + p + '</span>';
+                                    } else {
+                                        pageItem += '<span>' + p + '</span>';
+                                    }
+                                }
+                                pageList = '<div class="perv_btn"></div>' +
+                                    pageItem +
+                                    '<div class="next_btn"></div>';
+                                $(".page_container").html("");
+                                $(".page_container").append(pageList);
+                                for (var i = 0; i < r.list.length; i++) {
+                                    var acco = r.list[i].客服账号;
+                                    $("#charts_select").append('<option value="' + acco + '">' + acco + '</option>');
+                                    var startHtml = '';
+                                    var className = '';
+                                    if (i % 2 != 0) {
+                                        className == 'even';
+                                    }
+                                    for (var j = 0; j < 5; j++) {
+                                        if (j < r.list[i].评价星级) {
+                                            startHtml += '<span class="star selected_star"></span>';
+                                        } else {
+                                            startHtml += '<span class="star"></span>';
+                                        }
+                                    }
+                                    var evaluate = r.list[i].评价;
+                                    listHtml += '<tr class="' + className + '">' +
+                                        '<td style="width:200px;">' + r.list[i].客服账号 + '</td>' +
+                                        '<td>' + r.list[i].接待数量 + '</td>' +
+                                        '<td>' + r.list[i].已解决 + '</td>' +
+                                        '<td>' + r.list[i].未解决 + '</td>' +
+                                        '<td>' + r.list[i].未评价 + '</td>' +
+                                        '<td class="evaluate_td">' +
+                                        '<div class="evaluate_star">' +
+                                        startHtml +
+                                        '</div>' +
+                                        '<div class="evaluate_detail">' +
+                                        '<div class="five_star">五颗星好评(<span>' + evaluate.五星评价 + '</span>人)</div>' +
+                                        '<div class="four_star">四颗星好评(<span>' + evaluate.四星评价 + '</span>人)</div>' +
+                                        '<div class="three_star">三颗星好评(<span>' + evaluate.三星评价 + '</span>人)</div>' +
+                                        '<div class="two_star">二颗星好评(<span>' + evaluate.二星评价 + '</span>人)</div>' +
+                                        '<div class="one_star">一颗星好评(<span>' + evaluate.一星评价 + '</span>人)</div>' +
+                                        '<div class="total_star">共<span>' + evaluate.总评价 + '</span>人给出了评价</div>' +
+                                        '</div>' +
+                                        '</td>' +
+                                        '</tr>';
+                                }
+                                $("#table_body").html("");
+                                $("#table_body").append(listHtml);
+                                charts(serAccount, shopType, chartsStartDate, chartsEndDate);
+                            } else {
+                                alert(r.状态);
+                            }
+                        }
+                    })
+                };
+                serviceList(shopType, page, tableStartDate, tableEndDate);
+
+                //图表数据
+                var receptionCount = []; //图表每天已接待问题数数组
+                var totalCountList = []; //图表每天总接待问题数数组
+                function charts(serAccount, shopType, start, end) {
+                    var data = {};
+                    data.客服账号 = serAccount;
+                    data.店铺类别 = shopType;
+                    data.开始日期 = start;
+                    data.结束日期 = end;
+                    data = JSON.stringify(data);
+                    $.ajax({
+                        type: "POST",
+                        url: "/ajax.post?func=selectServiceByDay",
+                        data: 'data=' + data,
+                        success: function (r) {
+                            if (r.状态 == "成功") {
+                                var xData = [];
+                                var yData = [];
+                                for (var i = 0; i < r.list.length; i++) {
+                                    var date = r.list[i].录入时间.split("-");
+                                    var yPercent = 0;
+                                    if (r.list[i]["已接待"] == 0) {
+                                        yPercent = 0;
+                                    } else {
+                                        yPercent = Number((Number(r.list[i]["已接待"]) / Number(r.list[i]["总问题"])) * 100).toFixed(2);
+                                    }
+                                    xData[i] = date[1] + "/" + date[2];
+                                    yData[i] = yPercent;
+                                    receptionCount[i] = r.list[i]["已接待"];
+                                    totalCountList[i] = r.list[i]["总问题"];
+                                }
+                                draw(xData, yData);
+                            } else {
+                                alert(r.状态);
+                            }
+                        }
+                    })
+                };
+                //绘制图表
+                function draw(xData, yData) {
+                    // 基于准备好的dom，初始化echarts实例
+                    var myChart = echarts.init(document.getElementById('charts_main'));
+                    //浏览器大小改变时重置大小
+                    window.onresize = function () {
+                        myChart.resize();
+                    };
+                    // 指定图表的配置项和数据
+                    option = {
+                        grid: {
+                            left: '8%'
+                        },
+                        xAxis: {
+                            type: 'category',
+                            name: '日期',
+                            data: (function () {
+                                return xData;
+                            })(),
+                            boundaryGap: false,
+                            splitLine: {
+                                show: true, //显示x轴轴线
+                                lineStyle: {
+                                    color: '#ededed'
+                                }
+                            },
+                        },
+                        yAxis: {
+                            type: 'value',
+                            max: '100',
+                            name: '百分比',
+                            splitLine: {
+                                show: false, //显示y轴轴线
+                                lineStyle: {
+                                    color: '#ededed'
+                                }
+                            },
+                            axisLabel: { formatter: '{value}%' },
+                        },
+                        tooltip: {
+                            show: true,
+                            trigger: 'item',
+                            backgroundColor: '#ff5655',
+                            textStyle: {
+                                color: '#fff'
+                            },
+                            extraCssText: 'text-align: center;',
+                            position: 'top',
+                            formatter: function (params) {
+                                return '<div style="position:absolute;left:50%;top:51px;margin-left:-4px;border-left: 5px solid transparent;border-right: 5px solid transparent;border-top: 8px solid #ff5655;"></div>总问题：' + totalCountList[params.dataIndex] + '<br />已接待：' + receptionCount[params.dataIndex];
+                            }
+                        },
+                        series: [{
+                            data: (function () {
+                                return yData;
+                            })(),
+                            type: 'line',
+                            smooth: true, //平滑显示
+                            symbol: 'circle',
+                            symbolSize: '10',
+                            lineStyle: {
+                                color: '#ff5655' //折线颜色
+                            },
+                            itemStyle: {
+                                color: '#ff5655'
+                            },
+                            label: {
+                                show: true,
+                                fontSize: '16',
+                                color: '#666',
+                                formatter: '{c}%'
+                            },
+                            //折线区域背景颜色
+                            areaStyle: {
+                                color: {
+                                    type: 'linear', //线性渐变
+                                    x: 0,
+                                    y: 0,
+                                    x2: 0,
+                                    y2: 1,
+                                    colorStops: [{
+                                        offset: 0,
+                                        color: '#fadedf' // 0% 处的颜色
+                                    }, {
+                                        offset: 1,
+                                        color: '#ffffff' // 100% 处的颜色
+                                    }]
+                                }
+                            }
+                        }]
+                    };
+
+                    //显示图表
+                    myChart.setOption(option);
+                }
+            })
+
+            function jq_file_funcs(name, path, parameter) {
+                //path = JSON.stringify(path);
+                $.ajax({
+                    url: ips + '/img.xhtml',
+                    type: 'post',
+                    data: path,
+                    success: function (data) {
+                        //alert(data)
+                        if (data.状态 == '成功') {
+                            sendpic(data.url, parameter);
+                        } else {
+                            alert(data.状态);
+
+                        }
+                    }
+                })
+            }
+
+            //下面是更改密码
+            $('.tijiaos').click(function () {
+                var data = {};
+                var old_psd = $('#old_psd').val();
+                var new_psd = $('#new_psd').val();
+                var sure_psd = $('#sure_psd').val();
+                if (old_psd == '' || old_psd == null || old_psd == undefined) {
+                    alert('原密码不能为空!');
+                    return;
+                }
+                if (new_psd == '' || new_psd == null || new_psd == undefined) {
+                    alert('新密码不能为空!');
+                    return;
+                }
+                if (sure_psd == '' || sure_psd == null || sure_psd == undefined) {
+                    alert('确认密码不能为空!');
+                    return;
+                }
+                if (new_psd != sure_psd) {
+                    alert('新密码与确认密码不一致！');
+                    return;
+                }
+                data.old_psd = old_psd;
+                data.new_psd = new_psd;
+                data.sure_psd = sure_psd;
+                data.account = account;
+                //	data.func = 'setcode';
+                $.ajax({
+                    type: "POST",
+                    url: ips + "/ajax.post?func=setcode",
+                    data: $.param(data),
+                    success: function (result) {
+                        if (result.状态 != '成功') {
+                            alert(result.状态);
+                            return;
+                        }
+                        alert('修改成功');
+                        $('.psd').val('');
+                        $('#myModal').modal('hide');
+                        sessionStorage.removeItem('user_id');
+                        window.location.href = "/";
+                    }
+                });
+            })
+
+            $('.link_account').on('input', debounce(
+                function () {
+                    let a = $(".link_account").val().length;
+                    if (a > 0) {
+                        $(".qcan").css("display", "inline-block");
+                    } else {
+                        $(".qcan").css("display", "none");
+                    }
+                }
+                , 300));
+
+            function debounce(method, delay) {
+                var timer = null;
+                return function () {
+                    var context = this, args = arguments;
+                    clearTimeout(timer);
+                    timer = setTimeout(function () {
+                        method.apply(context, args);
+                    }, delay);
+                }
+            }
+
+            $(".qcan").click(function () {
+                $(".link_account").val("");
+                $(".qcan").css("display", "none");
+            })
+
+            $('.chaxt').click(function () {
+                $('.input_text').css('display', 'inline-block');
+
+            })
+            $(document).click(function (e) {
+                var tar = $(e.target);
+                if (!(tar.hasClass('chaxt') || tar.hasClass('add_f') || tar.hasClass('link_account'))) {
+                    $('.input_text').css('display', 'none');
+                }
+            })
+            $("#lxr").click(function () {
+                $("#linkman").slideToggle();
+                $('#lxrcont').toggleClass("content2");
+            })
+            $("#jsry").click(function () {
+                $("#linkman2").slideToggle();
+                $('#jsrycont').toggleClass("content2");
+            })
+
+            $("#jieru_list").on("mouseenter", ".jieru", function () {
+                $(this).find(".jieru-mask").show();
+            })
+            $('#jieru_list').on('mouseleave', '.jieru', function () {//绑定鼠标划出事件
+                $(this).find(".jieru-mask").hide();
+            });
+
+
+        </script>
+</body>
+
+</html>

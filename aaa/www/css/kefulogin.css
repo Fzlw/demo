@@ -1,0 +1,139 @@
+*{
+			margin:0;
+			padding:0;
+		}
+			.box{
+				background: url(../images/kefulogin1.jpg) no-repeat;
+				background-size:cover ;
+				width:100vw;
+				height: 100vh;
+			}
+			.box-y{
+				position: absolute;
+				background: #FFFFFF;
+				opacity:0.8;
+				top:50%;
+				left:50%;
+				width:480px;
+				height: 610px;
+				margin-top: -305px;
+				margin-left: -240px;
+			}
+			.manage-img{
+				position: relative;
+				margin-top: 80px;
+				display: block;
+				height: 80px;
+				width: 80px;
+				left: 50%;
+				margin-left: -40px;
+				background: url(../images/logo.png) no-repeat;
+			}
+			.manage-system{
+				display: block;
+				text-align: center;
+				margin-top:40px;
+				font-size: 26px;
+				font-weight: bolder;
+				color:#FF5655;
+			}
+			.account{
+				text-align: center;
+				border-bottom:1px solid #FF5655;
+				width: 360px;
+				height: 31px;
+				line-height: 31px;
+				margin:auto;
+				/* border-left:5px solid rgb(61,172,153); */
+				/* -webkit-box-shadow: #666 0px 0px 10px;
+                -moz-box-shadow: #666 0px 0px 10px;
+                box-shadow: #666 0px 0px 10px; */
+               
+			}
+			.pwd_jz{
+				width: 360px;
+				height: 31px;
+				line-height: 31px;
+				margin:auto;
+				font-size: 18px;
+				margin-top:30px;
+			}
+			.pwd_checkbox {
+				display: block;
+				float: left;
+				background: url('../images/ic-wexuan.png') no-repeat;
+				height: 20px;
+				width: 20px;
+				position: relative;
+				top: 50%;
+				margin-top: -10px;
+				margin-right: 10px;
+			}
+			.account1{
+				margin-top:35px;
+			}
+			.account2{
+				margin-top:30px;
+			}
+			.account label{
+				display: inline-block;
+				background-color:#FFFFFF ;
+				width: 44px;
+				color:#666666;
+				font-size: 20px;
+			}
+			.account input{
+				border:none;
+				outline:none;
+				background-color: #FFFFFF !important;
+				height: 29px;
+				width:315px;
+				margin-left:-5px;
+				font-size: 20px;
+			}
+			.account input:-webkit-autofill {
+				-webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset !important;
+			}
+			.login_l{
+				width: 360px;
+				height: 50px;
+				margin:0 auto;
+				margin-top:26px;
+				
+			}
+			.login_l .login{
+				width: 360px;
+				height: 50px;
+				background-color:#FF5655;
+				border:none;
+				outline:none;
+				font-size: 16px;
+				line-height: 50px;
+				color:#ffffff;
+				border-radius:5px;
+				-moz-border-radius:5px; /* Old Firefox */
+			}
+			.login_l .login:hover{
+				background-color:#FF6666;
+				cursor:pointer;
+			}
+			.forge{
+				float: right;
+				margin-right: 87px;
+				margin-top: 20px;
+				font-size: 13px;
+			}
+			.forge a{
+				text-decoration: none;
+				color:#7C7A7D;
+			}
+			.forge a:hover{
+				color:#333333;
+			}
+			.forge .register{
+				display: inline-block;
+				width: 37px;
+				height: 16px;
+				border-right: 3px solid #7C7A7D;
+				margin-right: 5px;
+			}

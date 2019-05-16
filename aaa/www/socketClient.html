@@ -1,0 +1,273 @@
+﻿﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>网页版消息发送</title>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	</head>
+
+	<style>
+		#messages, #system {
+			list-style-type: none;
+			margin: 10px 0px;
+			padding: 0px;
+			border: 1px solid #cccccc;
+			border-radius: 3%;
+		}
+		#messages li, #system li { padding: 5px 10px; }
+
+		@media screen and (min-width:1000px){
+			.bor-wt{
+				padding: 10px 280px;
+			}
+		}
+	</style>
+
+	<body>
+		<div class="container">
+			<br>
+			<!-- 用户认证 -->
+			<div class="row">
+				<div class="panel panel-success">
+					<div class="panel-heading ">
+						<h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> 用户认证</h3>
+					</div>
+					<div class="panel-body">
+						<div class="bor-wt">
+							<div class="bs-example bs-example-form" role="form">
+								<div class="input-group">
+									<span class="input-group-addon">账号</span>
+									<input id="userid" type="text" value="15680800517" class="form-control">
+								</div>
+								<br>
+								<div class="input-group">
+									<span class="input-group-addon">随机码</span>
+									<input id="random" type="text" value="1" class="form-control">
+								</div>
+								<br>
+								<button href="#" class="btn btn-success col-xs-12" id="auth">用户认证</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 用户单聊 -->
+			<div class="row">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title"><span class="glyphicon glyphicon-envelope"></span> 用户单聊</h3>
+					</div>
+					<div class="panel-body">
+						<div class="bor-wt">
+							<ul id="messages">
+							</ul>
+							<div class="bs-example bs-example-form" role="form">
+								<div class="input-group">
+									<span class="input-group-addon">接收账号</span>
+									<input id="receiveId" type="text" value="123" class="form-control">
+								</div>
+								<br>
+
+								<br>
+								<div class="input-group">
+									<span class="input-group-addon">消息内容</span>
+									<input id="content" type="text" class="form-control">
+								</div>
+								<br>
+								<button href="#" class="btn btn-info col-xs-12" id="sendMsg">发送消息</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 系统消息 -->
+			<div class="row">
+				<div class="panel panel-warning">
+					<div class="panel-heading">
+						<h3 class="panel-title"><span class="glyphicon glyphicon-volume-up"></span> 系统消息</h3>
+					</div>
+					<div class="panel-body">
+						<div class="bor-wt">
+							<ul id="system">
+							</ul>
+							<div class="bs-example bs-example-form" role="form">
+								<div class="input-group">
+									<span class="input-group-addon">系统单发</span>
+									<input id="sysSingleId" type="text" class="form-control">
+								</div>
+								<br>
+								<div class="input-group">
+									<span class="input-group-addon">消息标题</span>
+									<input id="sys_title" type="text" class="form-control">
+								</div>
+								<br>
+								<button href="#" class="btn btn-warning col-xs-12" id="sys_sendMsg">发送消息</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+				socket = io.connect('http://192.168.1.238:8080',{
+					"transports":['websocket']
+				});
+				console.log('获取到服务器分配的socket对象:',socket);
+				setInterval(function() {
+					socket.emit('time', '', function(ack) {
+						console.log('30秒定时心跳', ack);
+					});
+				}, 30000);
+				socket.on('connectionResult', function(sss) {
+					if(sss){
+						console.log('获取socketId成功！socketId === '+sss);
+						socketuuid = sss;
+					}
+				});
+
+				socket.on('reconnect', function (data) {
+					if (data == 1) {
+						var obj = {
+							userid: $('#userid').val(),
+							random: $('#random').val()
+						};
+						socket.emit('auth',JSON.stringify(obj),function(ack){
+							console.log('ack', ack);
+							if (ack.code == 1) {
+								alert('认证成功');
+							} else {
+								alert(ack.msg);
+							}
+						})
+					}
+					console.log('reconnect111111111111111111111111111',data);
+				});
+				socket.on('reconnecting', function (data) {
+					console.log('reconnecting111111111111111111111111111',data);
+				});
+				socket.on('reconnect_failed', function (data) {
+					console.log('reconnect_failed111111111111111111111111111',data);
+				});
+				socket.on('error', function (data) {
+					console.log('error111111111111111111111111111',data);
+				});
+				socket.on('connect_failed', function (data) {
+					console.log('connect_failed111111111111111111111111111',data);
+				});
+				socket.on('disconnect', function (data) {
+					console.log('disconnect111111111111111111111111111',data);
+				});
+				socket.on('connecting', function (data) {
+					console.log('connecting111111111111111111111111111',data);
+				});
+
+            //认证
+			$('#auth').click(function () {
+				
+				var obj = {
+                    userid: $('#userid').val(),
+					random: $('#random').val()
+				};
+				socket.emit('auth',JSON.stringify(obj),function(ack){
+                    console.log('ack', ack);
+                    if (ack.code == 1) {
+                        alert('认证成功');
+                    } else {
+                        alert(ack.msg);
+					}
+
+				})
+            })
+
+           
+
+			//发送单聊消息
+			$('#sendMsg').click(function () {
+				
+
+				
+
+                var obj = {
+                    receiveId: $('#receiveId').val(),
+                    random: $('#random').val(),
+                    sendId: $('#userid').val(),
+                    message: $('#content').val(),
+                    msgType: '文本',
+                    msgIdFse: 'aaaaaaaaa',
+					pushData: $('#content').val()
+                }
+                socket.emit('singleChat',obj,function(ack){
+                    if (ack.msg == '发送成功') {
+						//发送成功
+                        $('#messages').append($('<li style="text-align:right;">').text(obj.message));
+                    } else {
+                        //发送失败
+                        $('#messages').append($('<li style="text-align:right;">').text('发送失败:'+obj.message));
+                    }
+                    console.log('ack', ack);
+					$('#content').val('');
+                })
+			})
+
+			//接收消息
+			socket.on('message',function(data,ack){
+				var result = JSON.parse(data);
+                console.log('message', result);
+                if (result.sendId == '001') { //系统消息
+                    $('#system').append($('<li>').text(result.sessionType + ':' +result.message.text));
+                } else if (result.sendId == '003') { //账单通知
+                    $('#system').append($('<li>').text(result.sessionType + ':' +result.message.title));
+				} else if (result.sendId == '007') { //群发消息
+
+					$('#system').append($('<li>').text(result.sessionType + ':' +result.message.text));
+						
+				} else { //私聊消息
+                    ack(result.msgId);
+                    if (result.msgType == '图片') {
+                        $('#messages').append('<li><span>'+result.sendId+':</span><img src="'+result.message.url+'" style="width:50%; height:50%;"></li>');
+                    }
+                    $('#messages').append($('<li>').text(result.sendId + ':' +result.message.text));
+				}
+
+            });
+
+
+
+            //发送系统消息
+            $('#sys_sendMsg').click(function () {
+
+                var group = '用户';
+                if ($('#sysSingleId').val() != '') {
+                    group = '个人';
+                }
+
+				var params = {
+                    title: $('#sys_title').val(),
+                    msgType: '文本',
+                    group: group,
+                    receiveId: $('#sysSingleId').val()
+				};
+
+				$.ajax({
+                    type: 'POST',
+					url: '/ajax.post?func=systemMessage',
+					data: $.param(params),
+                    dataType: 'json',
+					success: function (result) {
+                        if (result.状态 = '成功') {
+                            $('#system').append($('<li style="text-align:right;">').text(params.title));
+                        }
+                	}
+				})
+            })
+
+
+		</script>
+	</body>
+
+</html>

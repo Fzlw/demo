@@ -1,8 +1,3 @@
-const express = require('express');
-const app = express();
-const fs = require('fs');
-const uuid = require('uuid')
-const multipart = require('connect-multiparty')();
 const OSS = require('ali-oss')
 const client = new OSS({
     region: 'oss-cn-shenzhen',
@@ -10,63 +5,27 @@ const client = new OSS({
     accessKeySecret: 'Q6dBhf8XGAmhswPzXULQZS4RoNYdx1',
     bucket: 'uncreditbank'
 })
+const fs = require('fs');
+const path = require('path')
 
 
 // 测试oss-ali 对象储存
 async function test() {
     try {
-        // let list = await client.put('test/liwei', '../test2.jpg');
+        let list = await client.put('test/liwei', '../test2.jpg');
         // let list  = await client.deleteMulti([
         //     'b7b07953-93aa-478a-ba52-d43e28aae8e0/back.jpeg',
         //     'b7b07953-93aa-478a-ba52-d43e28aae8e0/unback.jpeg',
         //     'b7b07953-93aa-478a-ba52-d43e28aae8e0/body.jpeg'
         // ])
-        let list = await client.list()
+        // let list = await client.list({
+        //     prefix: 'ce28118f-a239-4296-8d42-d2c487a58ed4',
+        //     "max-keys": 10
+        // })
+        // let list = await client.put('ce28118f-a239-4296-8d42-d2c487a58ed4/ttt.jpg', fs.readFileSync(path.resolve(__dirname, '../test.jpg')))
         console.log(list)
     } catch (error) {
         throw error;
     }
 }
 test()
-
-
-
-const cors = function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-}
-app.use(cors);
-
-app.post('/upload', multipart, function (req, res) {
-    // 写入文件
-    // let files = req.files;
-    // let resArr = [];
-    // for (let _file in files) {
-    //     let file = files[_file];
-    //     console.log(file)
-    //     let format = file.name.substring(file.name.lastIndexOf('.') + 1);
-    //     let rs = fs.createReadStream(file.path)
-    //     let _path = `./${uuid.v4()}.${format}`;
-    //     let ws = fs.createWriteStream(_path);
-    //     let send = 0;
-    //     rs.on('data', chunk => {
-    //         ws.write(chunk);
-    //         send += chunk.length;
-    //         console.log((send / file.size) * 100 + '%')
-    //     })
-    //     // rs.pipe(ws)
-    //     rs.once('close', () => {
-    //         console.log('end..............')
-    //         ws.end();
-    //         resArr.push(_path)
-    //     })
-    // }
-    console.log(req.body)
-    console.log(req.files)
-    res.send('ok....')
-    res.end()
-})
-
-// app.listen(7001, () => {
-//     console.log('http server start port 7001')
-// })

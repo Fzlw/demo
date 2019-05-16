@@ -1,0 +1,35 @@
+ {
+    /**
+    * Application configuration section
+    * http://pm2.keymetrics.io/docs/usage/application-declaration/
+    * 多个服务，依次放到apps对应的数组里
+    *"instances":2 开个多进程参数
+    */
+    "apps" : [
+    // link
+        {
+            "name": "im_message",//程序名称
+            "max_memory_restart":"500M",// 监控内存，一旦内存超过设定大小，自动重启
+            "script":"./apimain.js",
+            "out_file":"./_logs/_out.log",
+            "error_file": "./_logs/_error.log",
+            "max_restarts":30 ,
+            "instances":1,
+            "watch": [  // 监控变化的目录，一旦变化，自动重启
+            "api",
+            "ajax",
+            "config",
+            "func",
+            "routes"
+            ],
+            "ignore_watch" : [  // 从监控目录中排除
+                "node_modules", 
+                "_logs",
+                "www"
+              ],
+            "watch_options": {
+                "followSymlinks": false
+            },
+        }
+    ]
+ }

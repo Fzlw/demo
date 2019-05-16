@@ -1,0 +1,38 @@
+﻿<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>系统消息接收</title>
+</head>
+
+<body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        socket = io.connect('http://120.79.224.38:9988', {
+            "transports": ['websocket']
+        });
+        socket.on('connect', () => {
+            //alert('连接成功...');
+            var data = {};
+            data.userid = '15685166218_商家';
+            data.random = '31e3c447bfe4103c10ed72f7f19d7b0c';
+            socket.emit('auth', JSON.stringify(data), function (ack) {
+                console.log('ack', ack);
+                if (ack.code == 1) {
+                    alert(ack.msg);
+                } else {
+                    alert(ack.msg);
+                }
+            })
+        });
+
+        socket.on('message', function(data, ack) {
+            alert('ok');
+            console.log(data);
+        });
+    </script>
+</body>
+
+</html>

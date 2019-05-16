@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>网页版消息发送</title>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	</head>
+
+	<body>
+		<p></p>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-offset-1 col-md-10">
+					<div class="panel panel-info">
+					    <div class="panel-heading">
+					        <h3 class="panel-title">消息发送系统</h3>
+					    </div>
+					    <div class="panel-body">
+					    	<p></p>
+					    	<div class="row">
+					    		<div class="col-md-6">
+							    	<div class="row">
+							    		<div class="col-md-10">
+							    			<div class="form-group">
+										    	<label for="exampleInputEmail1">连接地址</label>
+										    	<input type="text" id="url" name="exampleInputEmail1" class="form-control" value="http://120.79.224.38:9988" placeholder="http://120.79.224.38:9988">
+										  	</div>
+											<input type="button" class="btn btn-primary col-md-offset-3 col-md-6" id="nihao" value="连接socket" onclick="connection()" />
+							    		</div>
+							    	</div>
+							    	<p></p>
+								    <div class="row">
+								    	<div class="col-md-10">
+											<div class="form-group">
+										    	<label for="exampleInputEmail1">账号</label>
+										    	<input type="text" class="form-control" id="account" value="15680800517">
+										  	</div>
+										  	<div class="form-group">
+										    	<label for="exampleInputPassword1">验证码</label>
+										    	<input type="text" class="form-control" id="random" value="fb1974409fb63f83a8dc9d0fc6297710">
+										  	</div>
+									  		<button class="btn btn-primary col-md-offset-3 col-md-6" type="button" onclick="auth()" class="btn btn-default">认证</button>
+									  	</div>
+								    </div>
+								    <p></p>
+								    <div class="row">
+								    	<div class="col-md-10">
+											<div class="form-group">
+										    	<label for="exampleInputEmail1">接口发消息内容给前台</label>
+										    	<input type="text" class="form-control" id="centent" placeholder="这个没得用处">
+										  	</div>
+											<input type="button" class="btn btn-primary col-md-offset-3 col-md-6" value="发消息" onclick="eee()" />
+										  	
+									  	</div>
+								    </div>
+								    <!--<p></p>
+								    <div class="row">
+								    	<div class="col-md-10">
+											<div class="form-group">
+										    	<label for="exampleInputEmail1">签名</label>
+										  	</div>
+											<input type="button" class="btn btn-primary col-md-offset-3 col-md-6" value="发消息" onclick="sign()" />
+									  	</div>
+								    </div>-->
+								    <p></p>
+								    <div class="row">
+								    	<div class="col-md-10">
+											<div class="form-group">
+										    	<label for="exampleInputEmail1">触发时间监听</label>
+										  	</div>
+											<input type="button" class="btn btn-primary col-md-offset-3 col-md-6" value="发消息" onclick="time()" />
+									  	</div>
+								    </div>
+					    		</div>
+					    		<div class="col-md-6" style="background-image: url('http://zyk-temp.oss-cn-shenzhen.aliyuncs.com/2017051511064816604.png');height: 450px;">
+					    			
+					    		</div>
+					    	</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			var socket= 1;
+			var socketuuid = 0;
+			/*
+			 * 可测试远程的，但是要改80行代码参数及其他ajax中的url参数！！！！！！
+			 */
+			//链接
+			function connection(){
+				url =  $('#url').val();
+				if(url == ''){
+					alert('输入url,远程的是http://:8080,本地是http://120.79.224.38:9988');
+					return false
+				}else{
+					alert('要测远程直接改80行代码')
+				}
+
+			}
+			socket = io.connect('http://192.168.0.216:8080');
+			console.log('socket',socket);
+			//拿到uuid
+			socket.on('connectionResult', function(sss) {
+				if(sss){
+					console.log('获取uuid成功！uuid === '+sss);
+					socketuuid = sss;
+				}
+					
+			});
+			
+			
+			//发消息有问题
+			function hello(){
+				var message = {}; //创建发送消息对象
+				message.type = "text";
+				message.touser = '？？？';
+				message.content = '？？？';
+
+				socket.emit('message',message,function(a,b){
+					console.log(a)
+					console.log(b)
+					console.log(3333)
+				});
+			
+			}
+			
+			//收消息
+			socket.on('message',function(data,ack){
+				alert(data);
+				console.log(data);
+				console.log(ack);
+			});
+			
+			//接口操作发消息
+			function eee(){
+				account =  $('#account').val();
+				if(account == ''){
+					alert('输入账号');
+					return false
+				}
+				var sendCode = $('#random').val();
+				var sendOutid = $('#account').val();
+				var centent = $('#centent').val();
+
+				var data = {
+                    receiveId:'13410982272',
+                    sendCode:sendCode,
+                    sendOutid:sendOutid,
+                    sendName:'啧啧啧',
+                    content:centent,
+                    msgType:'文本',
+                    msgIdFse:'123'
+				};
+				$.ajax({
+					type: "POST",
+					url: "http://120.79.224.38:9988/ajax.post?func=singleChat",
+					data:data,
+					success: function(json) {
+						alert(JSON.stringify(json));
+						console.log(json)
+					}
+				});
+			}
+			
+			//接口操作发消息
+			function sign(){
+				var data = {};
+				
+				data.appid = "d678efh567hg6794";
+				data.a = "12";
+				data.b = "67";
+				$.ajax({
+					type: "POST",
+					url: "http://192.168.0.201:8080/ajax.post?func=sign",
+					data:data,
+					success: function(json) {
+						alert(JSON.stringify(json));
+						console.log(json)
+					}
+				});
+			}
+			
+			//时间
+			function time(){
+				socket.emit('time','123456789',function(a){
+					console.log(a)
+					console.log(3333)
+				});
+			}
+			
+			//认证
+			function auth(){
+				account =  $('#account').val();
+				if(account == ''){
+					alert('输入账号');
+					return false
+				}
+				
+				random =  $('#random').val();
+				if(random == ''){
+					alert('输入random');
+					return false
+				}
+				alert('认证中请稍后');
+				var data = {};
+				data.userid = account;
+				data.random = random;
+				data.socketuuid = socketuuid;
+				$.ajax({
+					type: "POST",
+					url: "http://120.79.224.38:9988/ajax.post?func=auth",
+					data:data,
+					success: function(json) {
+						if(json.code == 0){
+							alert(json.msg)
+						}else{
+							alert(json.msg)
+						}
+						console.log(json)
+					}
+				});
+			}
+			
+		</script>
+	</body>
+
+</html>

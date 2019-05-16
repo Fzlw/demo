@@ -56,11 +56,25 @@ async function ddd(name) {
 // del()
 
 // 上传app程序,流式
-(async function uploadApp(fileName) {
+async function uploadApp(fileName, name) {
     const appPath = path.resolve(__dirname, `../../../../static/${fileName}`);
     const readStream = fs.createReadStream(appPath);
-    const name = `/creditcard/v0.0.2/1556261350000/${fileName}`;
+    // const name = `/creditcard/v0.0.3/${fileName}`;
     return await putStream(name, readStream);
-}) //('appself.plist')
-get('creditcard')
-// ddd('creditcard/v0.0.2/1556261350000/1556188456277.ipa')
+}
+// get('app')
+// ddd('creditcard/v0.0.2/1556261350000/appself.plist')
+// uploadApp('appself.plist')
+
+async function start() {
+    await ddd('app/creditcard/creditcard.plist')
+    await ddd('app/creditcard/creditcard.v4.ipa')
+    await ddd('app/creditcard/wygj1.apk')
+    await uploadApp('creditcard.v4.ipa', '/app/creditcard/creditcard.v4.ipa')
+    await uploadApp('creditcard.plist', '/app/creditcard/creditcard.plist')
+    await uploadApp('wygj1.apk', '/app/creditcard/wygj1.apk')
+    let result = await get('app')
+    console.log(result)
+}
+
+// start()

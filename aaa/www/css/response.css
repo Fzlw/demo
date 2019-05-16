@@ -1,0 +1,33 @@
+#reply_content{width: 560px;height: 488px;background: #FFF7FB;position: absolute; left: 7px; bottom: 139px;}
+#main_emojis{background: #F9FDFF;position: absolute; left: 7px; bottom: 139px;}
+/*.reply_content{position: absolute; left: 7px; bottom: 139px; width: 367px;padding-left: 40px; display: none;box-shadow: 2px 2px 7px #7ca7c1;background: #87ccff; }*/
+.content_top{width: 100%;height: 48px;background-color: #FF5655;}
+.content_top .system{width: 33.3%;float: left;}
+.content_top .custom{width: 33.3%;float: left;}
+.content_top .common{width: 33.3%;float: left;}
+.content_top .system p{color: #fff;}
+.content_top .custom p{color: #C4C4C4;}
+.content_top .common p{color: #C4C4C4;}
+.content_top div{position: relative;font-size: 16px;text-align: center;line-height: 48px;cursor:pointer;}
+.content_top div span{width:32px;height: 3px;background-color: #fff;position: absolute;top: 40px;left: 40%; }
+
+.add_li,.add_li2{margin: 12px;position: relative;left: 470px;}
+
+
+.content_main{width: 100%;padding: 10px;}
+.content_main .list-wrap{width: 540px;height: 420px;overflow: hidden}
+.list-wrap>ul{overflow: hidden;overflow-y: auto;width: 560px;height: 420px;}
+.list-wrap>ul li{margin-bottom:16px;font-size: 14px;color: #666;list-style: none;position: relative;}
+.list-wrap>ul li div{width: 70%;display: inline-block;margin-left: 28px;cursor:pointer;overflow: hidden}
+.inBorder{border: 1px solid #FF5655;}
+.list-wrap ul li span{display: inline-block;height: 8px;width: 8px;border-radius:50%;background-color:#FF5655;position: absolute;top: 5px;left: 10px;}
+
+
+.operation{position: absolute;top: 0;left:440px;cursor:pointer;}
+.operation li{float: left;margin: 0 10px;}
+.common-list li{border-bottom : 1px solid #FFB5C5;}
+.common-list label{font-size: 14px;font-weight:normal;}
+.common-list li input{width: 70%;}
+.common-list .ywc input{border: 0px;background:rgba(255,255,255,0.1);}
+.common-list li img{cursor:pointer;margin-left: 15px;}
+.common-list .wwc .imcz2{display: none;}

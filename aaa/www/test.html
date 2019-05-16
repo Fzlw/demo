@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>接口测试平台</title>
+</head>
+
+<body>
+	<style>
+		.div {
+			width: 100%;
+		}
+
+		#textname {
+			text-align: center;
+			font-size: 200%;
+
+		}
+
+		input {
+			border-radius: 5px;
+			border: 2px solid #999999;
+			padding: 3px 0 3px 5px;
+		}
+
+		input:hover {
+			border: 2px solid red;
+			padding: 3px 0 3px 5px;
+		}
+
+		input:focus {
+			border: 2px solid red;
+			padding: 3px 0 3px 5px;
+			outline: none
+		}
+
+		textarea {
+			border-radius: 5px;
+			border: 2px solid #999999;
+		}
+
+		textarea:hover {
+			border: 2px solid red;
+		}
+
+		textarea:focus {
+			border: 2px solid red;
+			outline: none
+		}
+
+		#neirong {
+			float: left;
+			width: 30%;
+		}
+
+		#shuchu {
+			float: right;
+			width: 68%;
+		}
+
+		#new {
+			color: brown;
+			font-weight: bold;
+			padding: 3px 0 3px 5px;
+		}
+
+		.btn {
+			padding: 10px;
+			border: 2px solid black;
+			width: 100px;
+			background: #fff;
+		}
+
+		.btn:hover {
+			padding: 10px;
+			border: 2px solid orangered;
+			width: 100px;
+			background: orangered;
+			color: white;
+		}
+
+		.btn:focus {
+			padding: 10px;
+			border: 2px solid orangered;
+			width: 100px;
+			background: orangered;
+			color: white;
+		}
+
+		iframe {
+			width: 100%;
+			height: 600px;
+			border: 2px solid #999999;
+			margin: 0 0 10px 0;
+			color: red;
+			border-radius: 5px;
+		}
+
+		#iframe {
+			width: 100%;
+			height: 600px;
+			border: 2px solid #999999;
+			margin: 0 0 10px 0;
+			color: red;
+			border-radius: 5px;
+		}
+
+		#son_con {
+			width: 100%;
+			height: 535px;
+		}
+
+		#content {
+			width: 150px;
+			height: 100px;
+			display: none;
+		}
+	</style>
+
+	<div id="textname">接口测试平台</div>
+
+	<div class="div">
+		<form id="b1" action="/test.post" method="post" target="iframe" onsubmit="return iffrom(this)">
+			<br>
+
+			<div id="neirong">
+				<div id="new">提交内容:</div>
+
+				<textarea id="son_con">
+func=login
+账号=18672242661
+随机码=fb31a2d16e3e56f067eb13529928d123
+手机ID=123123
+手机名称=112312323
+手机型号=231123</textarea>
+				<br />
+				<textarea name="content" id="content"></textarea>
+				<br />
+				<input class="btn" name="" type="submit" />
+		</form>
+		</div>
+
+
+		<div id="shuchu">
+			<div id="new">
+				输出结果：
+			</div>
+			<iframe src="" name="iframe" id="iframe"></iframe>
+		</div>
+	</div>
+
+
+	<script>
+		function iffrom(r) {
+			var con = document.getElementById("son_con").value;
+			var reg = new RegExp("\n", "g");
+			var newstr = con.replace(reg, '","');
+			reg = new RegExp("=", "g");
+			newstr = newstr.replace(reg, '":"');
+			newstr = '{"' + newstr + '"}';
+			document.getElementById("content").value = newstr;
+		}
+	</script>
+
+
+</body>
+
+</html>
